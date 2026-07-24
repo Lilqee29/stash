@@ -37,6 +37,11 @@ jobs:
       - name: Install CocoaPods
         run: cd ios && pod install
 
+      - name: Clean Xcode caches
+        run: |
+          rm -rf ~/Library/Developer/Xcode/DerivedData
+          rm -rf ~/Library/Caches/com.apple.dt.Xcode
+
       - name: Build unsigned archive
         run: |
           cd ios
@@ -45,18 +50,19 @@ jobs:
             -scheme stash \
             -configuration Release \
             -destination "generic/platform=iOS" \
-            -archivePath ../build/App.xcarchive \
+            -derivedDataPath ../build \
+            -archivePath ../build/stash.xcarchive \
             -sdk iphoneos \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO \
             DEVELOPMENT_TEAM="" \
-            clean archive
+            clean archive 2>&1 | xcbeautify || true
 
       - name: Package unsigned IPA
         run: |
           mkdir -p Payload
-          cp -r build/App.xcarchive/Products/Applications/stash.app Payload/
+          cp -r build/stash.xcarchive/Products/Applications/stash.app Payload/
           zip -r stash-unsigned.ipa Payload
           echo "IPA size: $(du -h stash-unsigned.ipa | cut -f1)"
 
