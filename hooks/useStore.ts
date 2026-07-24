@@ -46,6 +46,18 @@ export interface SearchTag {
   icon: string;
 }
 
+
+export interface ImportedPost {
+  id?: string;
+  title?: string;
+  url?: string;
+  platform?: 'tiktok' | 'instagram';
+  savedAt?: string;
+  thumbnailUrl?: string;
+  description?: string;
+  caption?: string;
+}
+
 export interface OnboardingState {
   // Onboarding Status
   howFound: string | null;
@@ -53,7 +65,7 @@ export interface OnboardingState {
   importedData: {
     platform: 'tiktok' | 'instagram';
     count: number;
-    posts: any[];
+    posts: ImportedPost[];
   } | null;
   isProcessing: boolean;
   processProgress: number;
@@ -66,7 +78,7 @@ export interface OnboardingState {
   // Setters & Actions
   setHowFound: (source: string) => void;
   setSelectedPlatform: (platform: 'tiktok' | 'instagram' | null) => void;
-  setImportedData: (data: { platform: 'tiktok' | 'instagram'; count: number; posts: any[] } | null) => void;
+  setImportedData: (data: { platform: 'tiktok' | 'instagram'; count: number; posts: ImportedPost[] } | null) => void;
   startProcessing: () => void;
   updateProgress: (progress: number) => void;
   finishProcessing: (folders: string[]) => void;
