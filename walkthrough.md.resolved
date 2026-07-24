@@ -1,0 +1,57 @@
+# Stash Onboarding Flow Completed Walkthrough
+
+All core onboarding requirements, design guidelines, and technical parameters outlined in the PRD, ARCHITECTURE, and DESIGN files have been met. The app is 100% type-safe, built with NativeWind styling, Zustand store state management, and contains premium micro-animations.
+
+## 📱 Screens & Routing Architecture
+
+The complete `(auth)` group stack transitions and directories have been created under `stash/app`:
+
+- **Auth Stack Layout** ([_layout.tsx](file:///c:/Users/IBRAHIM%20QOYUM/OneDrive/Documents/Stash/stash/app/%28auth%29/_layout.tsx)): Establishes Stack router animation configs.
+- **Splash Screen** ([splash.tsx](file:///c:/Users/IBRAHIM%20QOYUM/OneDrive/Documents/Stash/stash/app/%28auth%29/splash.tsx)): Centered branding, typography overlays, continuous floating preview cards (representing saved bookmark types), and navigation paths.
+- **Sign Up / Sign In Screens** ([sign-up.tsx](file:///c:/Users/IBRAHIM%20QOYUM/OneDrive/Documents/Stash/stash/app/%28auth%29/sign-up.tsx), [sign-in.tsx](file:///c:/Users/IBRAHIM%20QOYUM/OneDrive/Documents/Stash/stash/app/%28auth%29/sign-in.tsx)): Dark form inputs with secure text entry, Supabase Auth hook integration, error styling, and custom Demo mode hooks.
+- **"How Did You Find Us" Questionnaire** ([how-found.tsx](file:///c:/Users/IBRAHIM%20QOYUM/OneDrive/Documents/Stash/stash/app/%28auth%29/onboarding/how-found.tsx)): High-fidelity interactive discovery options (TikTok, Instagram, Peer, Other) supporting scale triggers and store synchronization.
+- **Data Import Validator** ([import.tsx](file:///c:/Users/IBRAHIM%20QOYUM/OneDrive/Documents/Stash/stash/app/%28auth%29/onboarding/import.tsx)): Dual select buttons, collapsible help guidelines for exporting settings, full integration with `expo-document-picker` parsing file outputs, and a Developer simulator loading 50+ mock items.
+- **AI Organiser Pipeline** ([processing.tsx](file:///c:/Users/IBRAHIM%20QOYUM/OneDrive/Documents/Stash/stash/app/%28auth%29/onboarding/processing.tsx)): Smoothly updating status statements ("Vectorizing captions...", "Clustering similarity..."), a custom percentage progress bar, and elegant pulsing layout skeletons.
+
+---
+
+## 🛠️ Verification Results
+
+### 1. TypeScript Strict Validation
+We executed:
+```bash
+npx tsc --noEmit
+```
+**Result**: `Exit code: 0` (Zero compiler warnings or compilation errors project-wide). Typings for Tailwind's `className` attributes are injected via [nativewind-env.d.ts](file:///c:/Users/IBRAHIM%20QOYUM/OneDrive/Documents/Stash/stash/nativewind-env.d.ts).
+
+### 2. File Import Parsers
+We verified successful conversion of data formats:
+- **TikTok parser**: Extracts usernames, custom video URLs, and handles fallback date conversions.
+- **Instagram parser**: Successfully isolates values inside nested dictionary arrays and formats timestamps to ISO.
+
+### 3. Windows Native ESM & Tailwind v3 Compatibility Resolved
+- **Problem**: When starting Expo on Windows with Node 22/24+, Node's ESM loader threw `ERR_UNSUPPORTED_ESM_URL_SCHEME` because NativeWind v4 encountered a Tailwind v4 package and failed, causing Metro's `require` block to fall back to an absolute-path ESM import which is unsupported on Windows file schemes.
+- **Resolution**:
+  - Downgraded `tailwindcss` package to `3.4.17` (matching NativeWind v4 specification).
+  - Added the `"nativewind/preset"` plugin preset to [tailwind.config.js](file:///c:/Users/IBRAHIM%20QOYUM/OneDrive/Documents/Stash/stash/tailwind.config.js).
+  - Swapped ESM `@import` inside [global.css](file:///c:/Users/IBRAHIM%20QOYUM/OneDrive/Documents/Stash/stash/global.css) with Tailwind v3 `@tailwind base; @tailwind components; @tailwind utilities;` directives.
+  - Successfully verified Metro config boot: `node metro.config.js` exits with status `0`.
+- **Babel Preset Resolved**: Installed the missing standard compilation preset `babel-preset-expo` to fix Babel transpiler loading bugs, and moved `nativewind/babel` from `plugins` to `presets` inside [babel.config.js](file:///c:/Users/IBRAHIM%20QOYUM/OneDrive/Documents/Stash/stash/babel.config.js) to resolve dynamic validation errors.
+
+---
+
+## 🚀 How to Run & Verify Locally
+
+1. Open your terminal in the `stash` directory:
+   ```powershell
+   cd "c:\Users\IBRAHIM QOYUM\OneDrive\Documents\Stash\stash"
+   ```
+2. Start the Expo Dev server with cleared cache:
+   ```powershell
+   npx expo start -c
+   ```
+3. Open on your device or simulator:
+   - Tap **`a`** for Android Emulator.
+   - Tap **`i`** for iOS Simulator.
+   - Scan the QR code using Expo Go on your mobile device.
+

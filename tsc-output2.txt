@@ -1,0 +1,485 @@
+App.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+App.tsx(2,22): error TS2305: Module '"react-native"' has no exported member 'Text'.
+App.tsx(2,28): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/(auth)/onboarding/how-found.tsx(3,3): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/(auth)/onboarding/how-found.tsx(4,3): error TS2305: Module '"react-native"' has no exported member 'Text'.
+app/(auth)/onboarding/how-found.tsx(5,3): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/(auth)/onboarding/how-found.tsx(6,3): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+app/(auth)/onboarding/how-found.tsx(7,3): error TS2305: Module '"react-native"' has no exported member 'TextInput'.
+app/(auth)/onboarding/how-found.tsx(8,3): error TS2305: Module '"react-native"' has no exported member 'KeyboardAvoidingView'.
+app/(auth)/onboarding/how-found.tsx(9,3): error TS2305: Module '"react-native"' has no exported member 'Platform'.
+app/(auth)/onboarding/how-found.tsx(10,3): error TS2305: Module '"react-native"' has no exported member 'Dimensions'.
+app/(auth)/onboarding/how-found.tsx(11,3): error TS2305: Module '"react-native"' has no exported member 'Animated'.
+app/(auth)/onboarding/how-found.tsx(16,26): error TS2307: Cannot find module 'expo-haptics' or its corresponding type declarations.
+app/(auth)/onboarding/how-found.tsx(109,7): error TS2322: Type '{ children: Element[]; style: { flex: number; backgroundColor: string; }; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/(auth)/onboarding/how-found.tsx(137,23): error TS7031: Binding element 'pressed' implicitly has an 'any' type.
+app/(auth)/onboarding/how-to-use.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/(auth)/onboarding/how-to-use.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'Text'.
+app/(auth)/onboarding/how-to-use.tsx(2,22): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/(auth)/onboarding/how-to-use.tsx(5,24): error TS7016: Could not find a declaration file for module 'lottie-react-native'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/lottie-react-native/lib/commonjs/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/lottie-react-native` if it exists or add a new declaration (.d.ts) file containing `declare module 'lottie-react-native';`
+app/(auth)/onboarding/how-to-use.tsx(6,33): error TS7016: Could not find a declaration file for module '@react-navigation/elements'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/@react-navigation/elements/lib/module/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/react-navigation__elements` if it exists or add a new declaration (.d.ts) file containing `declare module '@react-navigation/elements';`
+app/(auth)/onboarding/import.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/(auth)/onboarding/import.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'Text'.
+app/(auth)/onboarding/import.tsx(2,22): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/(auth)/onboarding/import.tsx(2,33): error TS2305: Module '"react-native"' has no exported member 'TextInput'.
+app/(auth)/onboarding/import.tsx(6,33): error TS7016: Could not find a declaration file for module '@react-navigation/elements'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/@react-navigation/elements/lib/module/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/react-navigation__elements` if it exists or add a new declaration (.d.ts) file containing `declare module '@react-navigation/elements';`
+app/(auth)/onboarding/import.tsx(7,28): error TS7016: Could not find a declaration file for module 'expo-clipboard'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/expo-clipboard/build/Clipboard.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/expo-clipboard` if it exists or add a new declaration (.d.ts) file containing `declare module 'expo-clipboard';`
+app/(auth)/onboarding/index.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/(auth)/onboarding/index.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'Text'.
+app/(auth)/onboarding/index.tsx(2,22): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+app/(auth)/onboarding/index.tsx(2,34): error TS2305: Module '"react-native"' has no exported member 'Dimensions'.
+app/(auth)/onboarding/index.tsx(2,46): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/(auth)/onboarding/index.tsx(5,24): error TS7016: Could not find a declaration file for module 'lottie-react-native'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/lottie-react-native/lib/commonjs/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/lottie-react-native` if it exists or add a new declaration (.d.ts) file containing `declare module 'lottie-react-native';`
+app/(auth)/onboarding/index.tsx(6,33): error TS7016: Could not find a declaration file for module '@react-navigation/elements'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/@react-navigation/elements/lib/module/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/react-navigation__elements` if it exists or add a new declaration (.d.ts) file containing `declare module '@react-navigation/elements';`
+app/(auth)/onboarding/index.tsx(148,23): error TS7006: Parameter 'ref' implicitly has an 'any' type.
+app/(auth)/onboarding/processing.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/(auth)/onboarding/processing.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'Text'.
+app/(auth)/onboarding/processing.tsx(5,24): error TS7016: Could not find a declaration file for module 'lottie-react-native'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/lottie-react-native/lib/commonjs/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/lottie-react-native` if it exists or add a new declaration (.d.ts) file containing `declare module 'lottie-react-native';`
+app/(auth)/onboarding/processing.tsx(6,33): error TS7016: Could not find a declaration file for module '@react-navigation/elements'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/@react-navigation/elements/lib/module/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/react-navigation__elements` if it exists or add a new declaration (.d.ts) file containing `declare module '@react-navigation/elements';`
+app/(auth)/sign-in.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/(auth)/sign-in.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'Text'.
+app/(auth)/sign-in.tsx(2,22): error TS2305: Module '"react-native"' has no exported member 'TextInput'.
+app/(auth)/sign-in.tsx(2,33): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/(auth)/sign-in.tsx(2,44): error TS2305: Module '"react-native"' has no exported member 'KeyboardAvoidingView'.
+app/(auth)/sign-in.tsx(2,66): error TS2305: Module '"react-native"' has no exported member 'Platform'.
+app/(auth)/sign-in.tsx(2,76): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+app/(auth)/sign-in.tsx(7,10): error TS2305: Module '"react-native"' has no exported member 'Image'.
+app/(auth)/sign-in.tsx(26,51): error TS2339: Property 'signInWithPassword' does not exist on type 'SupabaseAuthClient'.
+app/(auth)/sign-up.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/(auth)/sign-up.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'Text'.
+app/(auth)/sign-up.tsx(2,22): error TS2305: Module '"react-native"' has no exported member 'TextInput'.
+app/(auth)/sign-up.tsx(2,33): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/(auth)/sign-up.tsx(2,44): error TS2305: Module '"react-native"' has no exported member 'KeyboardAvoidingView'.
+app/(auth)/sign-up.tsx(2,66): error TS2305: Module '"react-native"' has no exported member 'Platform'.
+app/(auth)/sign-up.tsx(2,76): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+app/(auth)/sign-up.tsx(27,51): error TS2339: Property 'signUp' does not exist on type 'SupabaseAuthClient'.
+app/(auth)/splash.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/(auth)/splash.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'Text'.
+app/(auth)/splash.tsx(2,22): error TS2305: Module '"react-native"' has no exported member 'Animated'.
+app/(auth)/splash.tsx(5,10): error TS2305: Module '"react-native"' has no exported member 'Image'.
+app/(tabs)/discover.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/(tabs)/discover.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/(tabs)/discover.tsx(2,27): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+app/(tabs)/discover.tsx(6,26): error TS7016: Could not find a declaration file for module 'moti'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/moti/build/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/moti` if it exists or add a new declaration (.d.ts) file containing `declare module 'moti';`
+app/(tabs)/discover.tsx(7,23): error TS2307: Cannot find module 'expo-image' or its corresponding type declarations.
+app/(tabs)/folders.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/(tabs)/folders.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'TextInput'.
+app/(tabs)/folders.tsx(2,27): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/(tabs)/folders.tsx(2,38): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+app/(tabs)/folders.tsx(2,50): error TS2305: Module '"react-native"' has no exported member 'Modal'.
+app/(tabs)/folders.tsx(6,26): error TS7016: Could not find a declaration file for module 'moti'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/moti/build/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/moti` if it exists or add a new declaration (.d.ts) file containing `declare module 'moti';`
+app/(tabs)/folders.tsx(7,23): error TS2307: Cannot find module 'expo-image' or its corresponding type declarations.
+app/(tabs)/folders.tsx(298,32): error TS7006: Parameter 'event' implicitly has an 'any' type.
+app/(tabs)/home.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/(tabs)/home.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+app/(tabs)/home.tsx(2,28): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/(tabs)/home.tsx(6,26): error TS7016: Could not find a declaration file for module 'moti'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/moti/build/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/moti` if it exists or add a new declaration (.d.ts) file containing `declare module 'moti';`
+app/(tabs)/home.tsx(7,24): error TS7016: Could not find a declaration file for module 'lottie-react-native'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/lottie-react-native/lib/commonjs/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/lottie-react-native` if it exists or add a new declaration (.d.ts) file containing `declare module 'lottie-react-native';`
+app/(tabs)/home.tsx(8,23): error TS2307: Cannot find module 'expo-image' or its corresponding type declarations.
+app/(tabs)/index.tsx(4,3): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/(tabs)/index.tsx(5,3): error TS2305: Module '"react-native"' has no exported member 'Text'.
+app/(tabs)/index.tsx(6,3): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+app/(tabs)/index.tsx(7,3): error TS2305: Module '"react-native"' has no exported member 'Image'.
+app/(tabs)/index.tsx(8,3): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/(tabs)/index.tsx(9,3): error TS2305: Module '"react-native"' has no exported member 'TouchableOpacity'.
+app/(tabs)/index.tsx(10,3): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+app/(tabs)/index.tsx(64,19): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/(tabs)/search.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/(tabs)/search.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'TextInput'.
+app/(tabs)/search.tsx(2,27): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/(tabs)/search.tsx(2,38): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+app/(tabs)/search.tsx(6,26): error TS7016: Could not find a declaration file for module 'moti'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/moti/build/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/moti` if it exists or add a new declaration (.d.ts) file containing `declare module 'moti';`
+app/(tabs)/settings.tsx(3,3): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/(tabs)/settings.tsx(4,3): error TS2305: Module '"react-native"' has no exported member 'Text'.
+app/(tabs)/settings.tsx(5,3): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/(tabs)/settings.tsx(6,3): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+app/(tabs)/settings.tsx(7,3): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+app/(tabs)/settings.tsx(8,3): error TS2305: Module '"react-native"' has no exported member 'Switch'.
+app/(tabs)/settings.tsx(87,19): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/_layout.tsx(3,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/_layout.tsx(7,31): error TS7016: Could not find a declaration file for module 'expo-splash-screen'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/expo-splash-screen/build/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/expo-splash-screen` if it exists or add a new declaration (.d.ts) file containing `declare module 'expo-splash-screen';`
+app/_layout.tsx(19,8): error TS7016: Could not find a declaration file for module '@expo-google-fonts/dm-sans'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/@expo-google-fonts/dm-sans/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/expo-google-fonts__dm-sans` if it exists or add a new declaration (.d.ts) file containing `declare module '@expo-google-fonts/dm-sans';`
+app/_layout.tsx(57,54): error TS2339: Property 'onAuthStateChange' does not exist on type 'SupabaseAuthClient'.
+app/_layout.tsx(58,14): error TS7006: Parameter 'event' implicitly has an 'any' type.
+app/_layout.tsx(58,21): error TS7006: Parameter 'session' implicitly has an 'any' type.
+app/_layout.tsx(89,29): error TS2322: Type '{ children: Element; style: { flex: number; }; }' is not assignable to type 'IntrinsicAttributes & GestureHandlerRootViewProps'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & GestureHandlerRootViewProps'.
+app/folder/[id].tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/folder/[id].tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'FlatList'.
+app/folder/[id].tsx(2,26): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/folder/[id].tsx(2,37): error TS2305: Module '"react-native"' has no exported member 'Alert'.
+app/folder/[id].tsx(2,44): error TS2305: Module '"react-native"' has no exported member 'TextInput'.
+app/folder/[id].tsx(6,32): error TS7016: Could not find a declaration file for module 'expo-linear-gradient'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/expo-linear-gradient/build/LinearGradient.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/expo-linear-gradient` if it exists or add a new declaration (.d.ts) file containing `declare module 'expo-linear-gradient';`
+app/folder/[id].tsx(7,23): error TS2307: Cannot find module 'expo-image' or its corresponding type declarations.
+app/folder/[id].tsx(8,26): error TS7016: Could not find a declaration file for module 'moti'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/moti/build/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/moti` if it exists or add a new declaration (.d.ts) file containing `declare module 'moti';`
+app/folder/[id].tsx(278,26): error TS7006: Parameter 'item' implicitly has an 'any' type.
+app/folder/[id].tsx(282,26): error TS7031: Binding element 'item' implicitly has an 'any' type.
+app/folder/[id].tsx(282,32): error TS7031: Binding element 'index' implicitly has an 'any' type.
+app/folder/[id].tsx(293,26): error TS7006: Parameter 'item' implicitly has an 'any' type.
+app/folder/[id].tsx(295,26): error TS7031: Binding element 'item' implicitly has an 'any' type.
+app/folder/[id].tsx(295,32): error TS7031: Binding element 'index' implicitly has an 'any' type.
+app/notifications.tsx(3,3): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/notifications.tsx(4,3): error TS2305: Module '"react-native"' has no exported member 'Text'.
+app/notifications.tsx(5,3): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+app/notifications.tsx(6,3): error TS2305: Module '"react-native"' has no exported member 'FlatList'.
+app/notifications.tsx(7,3): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/notifications.tsx(8,3): error TS2305: Module '"react-native"' has no exported member 'ActivityIndicator'.
+app/notifications.tsx(82,21): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/notifications.tsx(100,19): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/notifications.tsx(129,26): error TS7006: Parameter 'i' implicitly has an 'any' type.
+app/notifications.tsx(131,26): error TS7031: Binding element 'item' implicitly has an 'any' type.
+app/notifications/[id].tsx(3,3): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/notifications/[id].tsx(4,3): error TS2305: Module '"react-native"' has no exported member 'Text'.
+app/notifications/[id].tsx(5,3): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/notifications/[id].tsx(6,3): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+app/notifications/[id].tsx(7,3): error TS2305: Module '"react-native"' has no exported member 'ActivityIndicator'.
+app/notifications/[id].tsx(8,3): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+app/notifications/[id].tsx(130,21): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/notifications/[id].tsx(149,21): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/notifications/[id].tsx(173,19): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/profile.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/profile.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'Text'.
+app/profile.tsx(2,22): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+app/profile.tsx(2,34): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/profile.tsx(2,45): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+app/profile.tsx(6,24): error TS7016: Could not find a declaration file for module 'lottie-react-native'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/lottie-react-native/lib/commonjs/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/lottie-react-native` if it exists or add a new declaration (.d.ts) file containing `declare module 'lottie-react-native';`
+app/profile/edit.tsx(3,3): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/profile/edit.tsx(4,3): error TS2305: Module '"react-native"' has no exported member 'Text'.
+app/profile/edit.tsx(5,3): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/profile/edit.tsx(6,3): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+app/profile/edit.tsx(7,3): error TS2305: Module '"react-native"' has no exported member 'TextInput'.
+app/profile/edit.tsx(8,3): error TS2305: Module '"react-native"' has no exported member 'Image'.
+app/profile/edit.tsx(9,3): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+app/profile/edit.tsx(10,3): error TS2305: Module '"react-native"' has no exported member 'ActivityIndicator'.
+app/profile/edit.tsx(11,3): error TS2305: Module '"react-native"' has no exported member 'Alert'.
+app/profile/edit.tsx(17,30): error TS7016: Could not find a declaration file for module 'expo-image-picker'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/expo-image-picker/build/ImagePicker.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/expo-image-picker` if it exists or add a new declaration (.d.ts) file containing `declare module 'expo-image-picker';`
+app/profile/edit.tsx(95,21): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/profile/edit.tsx(114,21): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/profile/edit.tsx(143,19): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/recently-imported.tsx(3,3): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/recently-imported.tsx(4,3): error TS2305: Module '"react-native"' has no exported member 'Text'.
+app/recently-imported.tsx(5,3): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/recently-imported.tsx(6,3): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+app/recently-imported.tsx(7,3): error TS2305: Module '"react-native"' has no exported member 'FlatList'.
+app/recently-imported.tsx(8,3): error TS2305: Module '"react-native"' has no exported member 'TouchableOpacity'.
+app/recently-imported.tsx(9,3): error TS2305: Module '"react-native"' has no exported member 'Image'.
+app/recently-imported.tsx(147,17): error TS7031: Binding element 'pressed' implicitly has an 'any' type.
+app/recently-imported.tsx(234,19): error TS2322: Type '{ children: (false | Element)[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/recently-imported.tsx(260,24): error TS7006: Parameter 'item' implicitly has an 'any' type.
+app/recently-imported.tsx(262,30): error TS7031: Binding element 'f' implicitly has an 'any' type.
+app/recently-imported.tsx(316,26): error TS7006: Parameter 'item' implicitly has an 'any' type.
+app/recently-imported.tsx(319,26): error TS7031: Binding element 'item' implicitly has an 'any' type.
+app/save/[id].tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/save/[id].tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+app/save/[id].tsx(2,28): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/save/[id].tsx(2,39): error TS2305: Module '"react-native"' has no exported member 'TextInput'.
+app/save/[id].tsx(2,50): error TS2305: Module '"react-native"' has no exported member 'Share'.
+app/save/[id].tsx(6,32): error TS7016: Could not find a declaration file for module 'expo-linear-gradient'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/expo-linear-gradient/build/LinearGradient.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/expo-linear-gradient` if it exists or add a new declaration (.d.ts) file containing `declare module 'expo-linear-gradient';`
+app/save/[id].tsx(7,23): error TS2307: Cannot find module 'expo-image' or its corresponding type declarations.
+app/save/[id].tsx(111,22): error TS7006: Parameter 'e' implicitly has an 'any' type.
+app/save/[id].tsx(118,12): error TS2322: Type '{ children: Element[]; style: { transform: { scale: number; }[]; opacity: number; }; className: string; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+app/save/[id].tsx(180,12): error TS2322: Type '{ children: Element[]; style: { transform: { translateY: number; }[]; }; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+app/settings/about.tsx(3,3): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/settings/about.tsx(4,3): error TS2305: Module '"react-native"' has no exported member 'Text'.
+app/settings/about.tsx(5,3): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/settings/about.tsx(6,3): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+app/settings/about.tsx(7,3): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+app/settings/about.tsx(8,3): error TS2305: Module '"react-native"' has no exported member 'ActivityIndicator'.
+app/settings/about.tsx(9,3): error TS2305: Module '"react-native"' has no exported member 'Linking'.
+app/settings/about.tsx(42,21): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/settings/about.tsx(61,21): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/settings/about.tsx(90,19): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/settings/account.tsx(3,3): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/settings/account.tsx(4,3): error TS2305: Module '"react-native"' has no exported member 'Text'.
+app/settings/account.tsx(5,3): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/settings/account.tsx(6,3): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+app/settings/account.tsx(7,3): error TS2305: Module '"react-native"' has no exported member 'TextInput'.
+app/settings/account.tsx(8,3): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+app/settings/account.tsx(9,3): error TS2305: Module '"react-native"' has no exported member 'ActivityIndicator'.
+app/settings/account.tsx(10,3): error TS2305: Module '"react-native"' has no exported member 'Alert'.
+app/settings/account.tsx(89,21): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/settings/account.tsx(108,21): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/settings/account.tsx(137,19): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/settings/appearance.tsx(3,3): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/settings/appearance.tsx(4,3): error TS2305: Module '"react-native"' has no exported member 'Text'.
+app/settings/appearance.tsx(5,3): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/settings/appearance.tsx(6,3): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+app/settings/appearance.tsx(7,3): error TS2305: Module '"react-native"' has no exported member 'Switch'.
+app/settings/appearance.tsx(8,3): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+app/settings/appearance.tsx(9,3): error TS2305: Module '"react-native"' has no exported member 'ActivityIndicator'.
+app/settings/appearance.tsx(51,21): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/settings/appearance.tsx(70,21): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/settings/appearance.tsx(99,19): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/settings/notifications.tsx(3,3): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/settings/notifications.tsx(4,3): error TS2305: Module '"react-native"' has no exported member 'Text'.
+app/settings/notifications.tsx(5,3): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/settings/notifications.tsx(6,3): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+app/settings/notifications.tsx(7,3): error TS2305: Module '"react-native"' has no exported member 'Switch'.
+app/settings/notifications.tsx(8,3): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+app/settings/notifications.tsx(9,3): error TS2305: Module '"react-native"' has no exported member 'ActivityIndicator'.
+app/settings/notifications.tsx(52,21): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/settings/notifications.tsx(71,21): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/settings/notifications.tsx(100,19): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/settings/storage.tsx(3,3): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/settings/storage.tsx(4,3): error TS2305: Module '"react-native"' has no exported member 'Text'.
+app/settings/storage.tsx(5,3): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/settings/storage.tsx(6,3): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+app/settings/storage.tsx(7,3): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+app/settings/storage.tsx(8,3): error TS2305: Module '"react-native"' has no exported member 'ActivityIndicator'.
+app/settings/storage.tsx(14,32): error TS7016: Could not find a declaration file for module 'expo-linear-gradient'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/expo-linear-gradient/build/LinearGradient.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/expo-linear-gradient` if it exists or add a new declaration (.d.ts) file containing `declare module 'expo-linear-gradient';`
+app/settings/storage.tsx(56,21): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/settings/storage.tsx(75,21): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/settings/storage.tsx(106,19): error TS2322: Type '{ children: Element[]; style: any; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+app/share.tsx(3,3): error TS2305: Module '"react-native"' has no exported member 'View'.
+app/share.tsx(4,3): error TS2305: Module '"react-native"' has no exported member 'Text'.
+app/share.tsx(5,3): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+app/share.tsx(6,3): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+app/share.tsx(7,3): error TS2305: Module '"react-native"' has no exported member 'Animated'.
+app/share.tsx(8,3): error TS2305: Module '"react-native"' has no exported member 'ActivityIndicator'.
+app/share.tsx(9,3): error TS2305: Module '"react-native"' has no exported member 'TextInput'.
+app/share.tsx(10,3): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+components/animated/AnimatedList.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'FlatList'.
+components/animated/AnimatedList.tsx(2,20): error TS2305: Module '"react-native"' has no exported member 'FlatListProps'.
+components/animated/AnimatedList.tsx(3,26): error TS7016: Could not find a declaration file for module 'moti'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/moti/build/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/moti` if it exists or add a new declaration (.d.ts) file containing `declare module 'moti';`
+components/animated/AnimatedPressable.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/animated/AnimatedPressable.tsx(2,37): error TS2305: Module '"react-native"' has no exported member 'ViewStyle'.
+components/animated/AnimatedPressable.tsx(8,26): error TS2307: Cannot find module 'expo-haptics' or its corresponding type declarations.
+components/animated/AnimatedPressable.tsx(58,6): error TS2322: Type '{ children: Element; style: any[]; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+components/animated/AnimatedSearch.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/animated/AnimatedSearch.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'TextInput'.
+components/animated/AnimatedSearch.tsx(2,27): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/animated/AnimatedSearch.tsx(9,26): error TS2307: Cannot find module 'expo-haptics' or its corresponding type declarations.
+components/animated/AnimatedSearch.tsx(70,8): error TS2322: Type '{ children: Element; style: { flex: number; }; className: string; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+components/animated/AnimatedSearch.tsx(109,10): error TS2322: Type '{ children: Element; style: { opacity: number; transform: { scale: number; }[]; }; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+components/animated/AnimatedSearch.tsx(111,14): error TS2322: Type '{ children: string; className: string; style: { fontFamily: string; }; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<TextProps>, any, any>> & Readonly<...>'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<TextProps>, any, any>> & Readonly<...>'.
+components/animated/AnimatedTabIndicator.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/animated/AnimatedTabIndicator.tsx(2,21): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/animated/AnimatedTabIndicator.tsx(2,27): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/animated/AnimatedTabIndicator.tsx(2,33): error TS2305: Module '"react-native"' has no exported member 'LayoutChangeEvent'.
+components/animated/AnimatedTabIndicator.tsx(8,26): error TS2307: Cannot find module 'expo-haptics' or its corresponding type declarations.
+components/animated/AnimatedTabIndicator.tsx(80,9): error TS2322: Type '{ style: { transform: { translateX: number; }[]; width: number; }; className: string; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+components/animated/AnimatedView.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'ViewStyle'.
+components/animated/AnimatedView.tsx(3,43): error TS7016: Could not find a declaration file for module 'moti'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/moti/build/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/moti` if it exists or add a new declaration (.d.ts) file containing `declare module 'moti';`
+components/animated/ParallaxHeader.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/animated/ParallaxHeader.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'ViewStyle'.
+components/animated/ParallaxHeader.tsx(12,21): error TS2694: Namespace '"C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/react-native-reanimated/lib/typescript/Animated"' has no exported member 'SharedValue'.
+components/animated/ParallaxHeader.tsx(68,8): error TS2322: Type '{ children: ReactNode; style: ({ transform: ({ scale: number; translateY?: undefined; } | { translateY: number; scale?: undefined; })[]; opacity: number; } | { position: string; inset: number; })[]; className: string; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+components/animated/ParallaxHeader.tsx(77,9): error TS2322: Type '{ style: { transform: { translateY: number; }[]; }; className: string; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+components/animated/SwipeableRow.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/animated/SwipeableRow.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/animated/SwipeableRow.tsx(2,27): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/animated/SwipeableRow.tsx(12,26): error TS2307: Cannot find module 'expo-haptics' or its corresponding type declarations.
+components/animated/SwipeableRow.tsx(140,14): error TS2322: Type '{ children: Element[]; style: { opacity: number; }; className: string; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+components/animated/SwipeableRow.tsx(151,14): error TS2322: Type '{ children: Element[]; style: { opacity: number; }; className: string; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+components/animated/SwipeableRow.tsx(166,10): error TS2322: Type '{ children: Element[]; style: { opacity: number; }; className: string; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+components/animated/SwipeableRow.tsx(182,10): error TS2322: Type '{ children: ReactNode; style: { transform: { translateX: number; }[]; }; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+components/Button.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/Button.tsx(2,21): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/Button.tsx(2,27): error TS2305: Module '"react-native"' has no exported member 'ActivityIndicator'.
+components/Button.tsx(2,46): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/Button.tsx(27,17): error TS7031: Binding element 'pressed' implicitly has an 'any' type.
+components/library/BottomDock.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/library/BottomDock.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/library/BottomDock.tsx(2,27): error TS2305: Module '"react-native"' has no exported member 'LayoutChangeEvent'.
+components/library/BottomDock.tsx(120,13): error TS2322: Type '{ style: { transform: { translateX: number; }[]; width: number; }; className: string; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+components/library/Carousel.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/library/Carousel.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/library/Carousel.tsx(2,22): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+components/library/Carousel.tsx(2,34): error TS2305: Module '"react-native"' has no exported member 'FlatList'.
+components/library/Carousel.tsx(2,44): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/library/Carousel.tsx(55,22): error TS7006: Parameter 'item' implicitly has an 'any' type.
+components/library/Carousel.tsx(57,22): error TS7031: Binding element 'item' implicitly has an 'any' type.
+components/library/CreateFolderModal.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/library/CreateFolderModal.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/library/CreateFolderModal.tsx(2,22): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/library/CreateFolderModal.tsx(2,33): error TS2305: Module '"react-native"' has no exported member 'TextInput'.
+components/library/CreateFolderModal.tsx(2,44): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+components/library/CreateFolderModal.tsx(2,56): error TS2305: Module '"react-native"' has no exported member 'Modal'.
+components/library/CreateFolderModal.tsx(2,63): error TS2305: Module '"react-native"' has no exported member 'Platform'.
+components/library/CreateFolderModal.tsx(4,26): error TS2307: Cannot find module 'expo-haptics' or its corresponding type declarations.
+components/library/FolderCard.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/library/FolderCard.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/library/SearchOverlay.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/library/SearchOverlay.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/library/SearchOverlay.tsx(2,22): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/library/SearchOverlay.tsx(2,33): error TS2305: Module '"react-native"' has no exported member 'TextInput'.
+components/library/SearchOverlay.tsx(2,44): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+components/library/SearchOverlay.tsx(2,56): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+components/library/SearchOverlay.tsx(2,68): error TS2305: Module '"react-native"' has no exported member 'Modal'.
+components/library/SearchOverlay.tsx(2,75): error TS2305: Module '"react-native"' has no exported member 'Platform'.
+components/library/SettingsOverlay.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/library/SettingsOverlay.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/library/SettingsOverlay.tsx(2,22): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/library/SettingsOverlay.tsx(2,33): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+components/library/SettingsOverlay.tsx(2,45): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+components/library/SettingsOverlay.tsx(2,57): error TS2305: Module '"react-native"' has no exported member 'Modal'.
+components/library/SettingsOverlay.tsx(2,64): error TS2305: Module '"react-native"' has no exported member 'Platform'.
+components/library/SettingsOverlay.tsx(5,26): error TS2307: Cannot find module 'expo-haptics' or its corresponding type declarations.
+components/library/SettingsOverlay.tsx(32,23): error TS2322: Type '{ children: Element[]; style: { flex: number; }; }' is not assignable to type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & NativeSafeAreaViewProps & RefAttributes<any>'.
+components/library/SettingsOverlay.tsx(103,25): error TS7031: Binding element 'pressed' implicitly has an 'any' type.
+components/library/SmartFolders.tsx(3,3): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/library/SmartFolders.tsx(4,3): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/library/SmartFolders.tsx(5,3): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+components/library/SmartFolders.tsx(6,3): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/library/SmartFolders.tsx(7,3): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+components/library/SmartFolders.tsx(61,25): error TS7031: Binding element 'pressed' implicitly has an 'any' type.
+components/library/SuggestionCard.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/library/SuggestionCard.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/Logo.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/Logo.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/modals/AddAnythingModal.tsx(3,3): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/modals/AddAnythingModal.tsx(4,3): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/modals/AddAnythingModal.tsx(5,3): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+components/modals/AddAnythingModal.tsx(6,3): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/modals/AddAnythingModal.tsx(7,3): error TS2305: Module '"react-native"' has no exported member 'ScrollView'.
+components/modals/AddAnythingModal.tsx(8,3): error TS2305: Module '"react-native"' has no exported member 'Modal'.
+components/modals/AddAnythingModal.tsx(9,3): error TS2305: Module '"react-native"' has no exported member 'Animated'.
+components/modals/BulkImportModal.tsx(3,3): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/modals/BulkImportModal.tsx(4,3): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/modals/BulkImportModal.tsx(5,3): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+components/modals/BulkImportModal.tsx(6,3): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/modals/ModalShell.tsx(3,3): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/modals/ModalShell.tsx(4,3): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/modals/ModalShell.tsx(5,3): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+components/modals/ModalShell.tsx(6,3): error TS2305: Module '"react-native"' has no exported member 'Modal'.
+components/modals/ModalShell.tsx(7,3): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/modals/ModalShell.tsx(8,3): error TS2305: Module '"react-native"' has no exported member 'StyleProp'.
+components/modals/ModalShell.tsx(9,3): error TS2305: Module '"react-native"' has no exported member 'ViewStyle'.
+components/modals/NotesModal.tsx(3,3): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/modals/NotesModal.tsx(4,3): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/modals/NotesModal.tsx(5,3): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+components/modals/NotesModal.tsx(6,3): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/modals/NotesModal.tsx(7,3): error TS2305: Module '"react-native"' has no exported member 'TextInput'.
+components/modals/PasteUrlModal.tsx(3,3): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/modals/PasteUrlModal.tsx(4,3): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/modals/PasteUrlModal.tsx(5,3): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+components/modals/PasteUrlModal.tsx(6,3): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/modals/PasteUrlModal.tsx(7,3): error TS2305: Module '"react-native"' has no exported member 'TextInput'.
+components/modals/PasteUrlModal.tsx(8,3): error TS2305: Module '"react-native"' has no exported member 'ActivityIndicator'.
+components/modals/PasteUrlModal.tsx(9,3): error TS2305: Module '"react-native"' has no exported member 'KeyboardAvoidingView'.
+components/modals/PasteUrlModal.tsx(10,3): error TS2305: Module '"react-native"' has no exported member 'Platform'.
+components/modals/PasteUrlModal.tsx(13,28): error TS7016: Could not find a declaration file for module 'expo-clipboard'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/expo-clipboard/build/Clipboard.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/expo-clipboard` if it exists or add a new declaration (.d.ts) file containing `declare module 'expo-clipboard';`
+components/modals/PasteUrlModal.tsx(111,28): error TS7006: Parameter 'text' implicitly has an 'any' type.
+components/modals/ScreenshotsModal.tsx(3,3): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/modals/ScreenshotsModal.tsx(4,3): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/modals/ScreenshotsModal.tsx(5,3): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+components/modals/ScreenshotsModal.tsx(6,3): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/modals/SearchModal.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'Dimensions'.
+components/modals/SearchModal.tsx(2,22): error TS2305: Module '"react-native"' has no exported member 'ActivityIndicator'.
+components/modals/SearchModal.tsx(4,3): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/modals/SearchModal.tsx(5,3): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/modals/SearchModal.tsx(6,3): error TS2305: Module '"react-native"' has no exported member 'StyleSheet'.
+components/modals/SearchModal.tsx(7,3): error TS2305: Module '"react-native"' has no exported member 'Modal'.
+components/modals/SearchModal.tsx(8,3): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/modals/SearchModal.tsx(9,3): error TS2305: Module '"react-native"' has no exported member 'Animated'.
+components/modals/SearchModal.tsx(10,3): error TS2305: Module '"react-native"' has no exported member 'TextInput'.
+components/OnboardingProgress.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/ui/Button.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/ui/Button.tsx(2,21): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/ui/Button.tsx(2,27): error TS2305: Module '"react-native"' has no exported member 'ActivityIndicator'.
+components/ui/Button.tsx(2,46): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/ui/Button.tsx(74,6): error TS2322: Type '{ children: Element; style: ({ transform: { scale: number; }[]; } | { width: string; })[]; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+components/ui/Card.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/ui/Card.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/ui/Card.tsx(2,22): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/ui/Card.tsx(2,33): error TS2305: Module '"react-native"' has no exported member 'ViewStyle'.
+components/ui/Card.tsx(48,8): error TS2322: Type '{ children: Element; style: any[]; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+components/ui/IconButton.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/ui/IconButton.tsx(2,21): error TS2305: Module '"react-native"' has no exported member 'ViewStyle'.
+components/ui/IconButton.tsx(41,6): error TS2322: Type '{ children: Element; style: any[]; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+components/ui/SegmentedControl.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/ui/SegmentedControl.tsx(2,16): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/ui/SegmentedControl.tsx(2,22): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/ui/SegmentedControl.tsx(2,33): error TS2305: Module '"react-native"' has no exported member 'LayoutChangeEvent'.
+components/ui/SegmentedControl.tsx(8,26): error TS2307: Cannot find module 'expo-haptics' or its corresponding type declarations.
+components/ui/SegmentedControl.tsx(61,11): error TS2322: Type '{ style: ({ width: number; transform: { translateX: number; }[]; } | { position: string; top: number; bottom: number; left: number; borderRadius: number; backgroundColor: string; borderWidth: number; borderColor: string; })[]; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+  Property 'style' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+components/ui/Tab.tsx(2,10): error TS2305: Module '"react-native"' has no exported member 'Pressable'.
+components/ui/Tab.tsx(2,21): error TS2305: Module '"react-native"' has no exported member 'Text'.
+components/ui/Tab.tsx(2,27): error TS2305: Module '"react-native"' has no exported member 'View'.
+components/ui/Tab.tsx(45,6): error TS2322: Type '{ children: Element; style: { transform: { scale: number; }[]; }[]; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<AnimatedProps<ViewProps>, any, any>> & Readonly<...>'.
+hooks/useAdvancedAnimations.ts(10,26): error TS2307: Cannot find module 'expo-haptics' or its corresponding type declarations.
+hooks/useAdvancedAnimations.ts(18,21): error TS2694: Namespace '"C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/react-native-reanimated/lib/typescript/Animated"' has no exported member 'SharedValue'.
+hooks/useStore.ts(370,57): error TS2339: Property 'getSession' does not exist on type 'SupabaseAuthClient'.
+hooks/useStore.ts(435,57): error TS2339: Property 'getSession' does not exist on type 'SupabaseAuthClient'.
+hooks/useStore.ts(469,59): error TS2339: Property 'getSession' does not exist on type 'SupabaseAuthClient'.
+hooks/useStore.ts(504,57): error TS2339: Property 'getSession' does not exist on type 'SupabaseAuthClient'.
+hooks/useStore.ts(524,57): error TS2339: Property 'getSession' does not exist on type 'SupabaseAuthClient'.
+hooks/useStore.ts(566,57): error TS2339: Property 'getSession' does not exist on type 'SupabaseAuthClient'.
+hooks/useStore.ts(600,57): error TS2339: Property 'getSession' does not exist on type 'SupabaseAuthClient'.
+lib/supabase.ts(1,10): error TS2305: Module '"react-native"' has no exported member 'AppState'.
+lib/supabase.ts(3,30): error TS7016: Could not find a declaration file for module 'expo-secure-store'. 'C:/Users/IBRAHIM QOYUM/Documents/Stash/stash/node_modules/expo-secure-store/build/SecureStore.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/expo-secure-store` if it exists or add a new declaration (.d.ts) file containing `declare module 'expo-secure-store';`
+lib/supabase.ts(30,38): error TS7006: Parameter 'nextAppState' implicitly has an 'any' type.
+lib/supabase.ts(32,19): error TS2339: Property 'startAutoRefresh' does not exist on type 'SupabaseAuthClient'.
+lib/supabase.ts(34,19): error TS2339: Property 'stopAutoRefresh' does not exist on type 'SupabaseAuthClient'.
