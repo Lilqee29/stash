@@ -26,7 +26,9 @@ const CATEGORIES = [
 ];
 
 export default function AddAnythingModal() {
-  const { modal, setModal, setSearchTag } = useStore();
+  const modal = useStore((s) => s.modal);
+  const setModal = useStore((s) => s.setModal);
+  const setSearchTag = useStore((s) => s.setSearchTag);
   const [activeAction, setActiveAction] = useState<ActionModalType>(null);
   const [actionInput, setActionInput] = useState('');
   const [restoreAddOnClose, setRestoreAddOnClose] = useState(false);
