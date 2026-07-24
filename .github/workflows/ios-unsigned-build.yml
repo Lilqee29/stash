@@ -1,0 +1,68 @@
+name: Build Unsigned iOS IPA
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Unsigned IPA
+    runs-on: macos-15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode 26.3
+        run: sudo xcode-select -s /Applications/Xcode_26.3.app
+
+      - name: Show build environment
+        run: |
+          echo "Xcode: $(xcodebuild -version)"
+          echo "Node: $(node --version)"
+          echo "npm: $(npm --version)"
+          echo "CocoaPods: $(pod --version)"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate native iOS project
+        run: npx expo prebuild --platform ios --clean
+
+      - name: Install CocoaPods
+        run: cd ios && pod install
+
+      - name: Build unsigned archive
+        run: |
+          cd ios
+          xcodebuild \
+            -workspace stash.xcworkspace \
+            -scheme stash \
+            -configuration Release \
+            -destination "generic/platform=iOS" \
+            -archivePath ../build/App.xcarchive \
+            -sdk iphoneos \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            DEVELOPMENT_TEAM="" \
+            clean archive
+
+      - name: Package unsigned IPA
+        run: |
+          mkdir -p Payload
+          cp -r build/App.xcarchive/Products/Applications/stash.app Payload/
+          zip -r stash-unsigned.ipa Payload
+          echo "IPA size: $(du -h stash-unsigned.ipa | cut -f1)"
+
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: stash-unsigned-ipa
+          path: stash-unsigned.ipa
+          retention-days: 7
