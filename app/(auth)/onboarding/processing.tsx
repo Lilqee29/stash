@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import LottieView from 'lottie-react-native';
-import { useHeaderHeight } from '@react-navigation/elements';
+// useHeaderHeight removed: not available from @react-navigation/elements in SDK 56+
 
 import { useStore } from '../../../hooks/useStore';
 import { OnboardingProgress } from '../../../components/OnboardingProgress';
@@ -12,7 +12,7 @@ import { detectPlatform } from '../../../lib/detectPlatform';
 
 export default function ProcessingScreen() {
   const insets = useSafeAreaInsets();
-  const headerHeight = useHeaderHeight();
+  const headerHeight = 44; // standard iOS nav bar
   const { importedData, finishProcessing, addSave } = useStore();
   const [progress, setProgress] = useState(0);
   const [statusText, setStatusText] = useState('Extracting saved posts...');

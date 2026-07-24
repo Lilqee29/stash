@@ -82,9 +82,7 @@ declare module 'moti/skeleton' {
   export const Skeleton: Component<{ colorMode?: string; children?: unknown }>;
 }
 
-declare module '@react-navigation/elements' {
-  export function useHeaderHeight(): number;
-}
+// @react-navigation/elements declaration removed (SDK 56+ — no longer auto-linked via expo-router)
 
 declare module 'expo-haptics' {
   export enum ImpactFeedbackStyle {

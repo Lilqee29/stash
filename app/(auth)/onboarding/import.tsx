@@ -3,7 +3,7 @@ import { View, Text, Pressable, TextInput } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { useHeaderHeight } from '@react-navigation/elements';
+// useHeaderHeight removed: not available from @react-navigation/elements in SDK 56+
 import * as Clipboard from 'expo-clipboard';
 
 import { Button } from '../../../components/Button';
@@ -13,7 +13,7 @@ import { detectPlatform, isValidUrl } from '../../../lib/detectPlatform';
 
 export default function ImportScreen() {
   const insets = useSafeAreaInsets();
-  const headerHeight = useHeaderHeight();
+  const headerHeight = 44; // standard iOS nav bar
   const setImportedData = useStore((s) => s.setImportedData);
   const [link, setLink] = useState('');
   const [selectedPlatform, setSelectedPlatform] = useState<'tiktok' | 'instagram'>('tiktok');

@@ -3,7 +3,8 @@ import { View, Text, ScrollView, Dimensions, Pressable } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import LottieView from 'lottie-react-native';
-import { useHeaderHeight } from '@react-navigation/elements';
+// useHeaderHeight removed: not available from @react-navigation/elements in SDK 56+
+// Auth screens use a standard 44pt nav bar height
 
 import { Button } from '../../../components/Button';
 import { OnboardingProgress } from '../../../components/OnboardingProgress';
@@ -39,7 +40,7 @@ const SLIDES = [
 
 export default function OnboardingScreen() {
   const insets = useSafeAreaInsets();
-  const headerHeight = useHeaderHeight();
+  const headerHeight = 44; // standard iOS nav bar
   const scrollViewRef = useRef<ScrollView>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);

@@ -3,7 +3,7 @@ import { View, Text, Pressable } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import LottieView from 'lottie-react-native';
-import { useHeaderHeight } from '@react-navigation/elements';
+// useHeaderHeight removed: not available from @react-navigation/elements in SDK 56+
 
 import { Button } from '../../../components/Button';
 
@@ -27,7 +27,7 @@ const STEPS = [
 
 export default function HowToUseScreen() {
   const insets = useSafeAreaInsets();
-  const headerHeight = useHeaderHeight();
+  const headerHeight = 44; // standard iOS nav bar
 
   return (
     <View style={{ flex: 1, backgroundColor: '#0A0A0A' }}>
