@@ -13,7 +13,11 @@ import { Ionicons } from '@expo/vector-icons';
 import { useStore } from '../../hooks/useStore';
 
 export default function SearchModal() {
-  const { modal, setModal, searchTag, setSearchTag, saves } = useStore();
+  const modal = useStore((s) => s.modal);
+  const setModal = useStore((s) => s.setModal);
+  const searchTag = useStore((s) => s.searchTag);
+  const setSearchTag = useStore((s) => s.setSearchTag);
+  const saves = useStore((s) => s.saves);
   const isSearchOpen = modal === 'search';
   const [query, setQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
