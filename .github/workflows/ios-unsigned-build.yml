@@ -53,6 +53,7 @@ jobs:
             -derivedDataPath ../build \
             -archivePath ../build/stash.xcarchive \
             -sdk iphoneos \
+            -jobs 1 \
             SWIFT_STRICT_CONCURRENCY=minimal \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
