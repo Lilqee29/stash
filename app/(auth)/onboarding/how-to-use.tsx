@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, Pressable } from 'react-native';
+import { View, Text } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import LottieView from 'lottie-react-native';
-// useHeaderHeight removed: not available from @react-navigation/elements in SDK 56+
+import Animated, { FadeInDown, FadeInRight } from 'react-native-reanimated';
 
 import { Button } from '../../../components/Button';
 
@@ -41,7 +41,8 @@ export default function HowToUseScreen() {
         }}
       >
         {/* Lottie Animation */}
-        <View
+        <Animated.View
+          entering={FadeInDown.duration(600)}
           style={{
             width: 200,
             height: 200,
@@ -56,13 +57,14 @@ export default function HowToUseScreen() {
             loop
             style={{ width: 200, height: 200 }}
           />
-        </View>
+        </Animated.View>
 
         {/* Steps */}
         <View style={{ width: '100%', gap: 24 }}>
           {STEPS.map((step, index) => (
-            <View
+            <Animated.View
               key={index}
+              entering={FadeInRight.delay(200 + index * 150).duration(400)}
               style={{
                 flexDirection: 'row',
                 alignItems: 'flex-start',
@@ -93,7 +95,7 @@ export default function HowToUseScreen() {
                   {step.description}
                 </Text>
               </View>
-            </View>
+            </Animated.View>
           ))}
         </View>
       </View>
@@ -106,8 +108,8 @@ export default function HowToUseScreen() {
           gap: 12,
         }}
       >
-        <Button title="Got it" onPress={() => router.push('/sign-up')} />
-        <Button title="Skip tutorial" onPress={() => router.push('/sign-up')} variant="ghost" />
+        <Button title="Got it" onPress={() => router.replace('/(tabs)/home')} />
+        <Button title="Skip tutorial" onPress={() => router.replace('/(tabs)/home')} variant="ghost" />
       </View>
     </View>
   );
