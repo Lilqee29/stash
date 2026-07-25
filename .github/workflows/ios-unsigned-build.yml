@@ -25,7 +25,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
@@ -37,13 +37,9 @@ jobs:
       - name: Install CocoaPods
         run: cd ios && pod install
 
-      - name: Clean Xcode caches
-        run: |
-          rm -rf ~/Library/Developer/Xcode/DerivedData
-          rm -rf ~/Library/Caches/com.apple.dt.Xcode
-
       - name: Build unsigned archive
         run: |
+          set -o pipefail
           cd ios
           xcodebuild \
             -workspace stash.xcworkspace \
@@ -54,12 +50,21 @@ jobs:
             -archivePath ../build/stash.xcarchive \
             -sdk iphoneos \
             -jobs 1 \
-            SWIFT_STRICT_CONCURRENCY=minimal \
+            COMPILER_INDEX_STORE_ENABLE=NO \
+            SWIFT_COMPILATION_MODE=wholemodule \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO \
             DEVELOPMENT_TEAM="" \
-            archive 2>&1 | xcbeautify
+            archive 2>&1 | tee ../xcodebuild.log | xcbeautify
+
+      - name: Verify archive exists
+        run: |
+          if [ ! -d "build/stash.xcarchive/Products/Applications/stash.app" ]; then
+            echo "Archive missing — dumping last 200 lines of raw xcodebuild log:"
+            tail -200 xcodebuild.log
+            exit 1
+          fi
 
       - name: Package unsigned IPA
         run: |
@@ -74,3 +79,11 @@ jobs:
           name: stash-unsigned-ipa
           path: stash-unsigned.ipa
           retention-days: 7
+
+      - name: Upload raw build log (for debugging)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xcodebuild-raw-log
+          path: xcodebuild.log
+          retention-days: 3
