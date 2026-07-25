@@ -40,7 +40,7 @@ yarn-error.*
 *.tsbuildinfo
 
 
-d
+
 # generated native folders
 /ios
 /android
