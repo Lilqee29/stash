@@ -405,7 +405,7 @@ export default function HomeScreen() {
               Share a TikTok or Instagram link to Stash to get started
             </View>
             <AnimatedPressable
-              onPress={() => router.push('/(auth)/onboarding/import')}
+              onPress={() => useStore.getState().setModal('add')}
             >
               <View className="bg-accent-base px-6 py-3 rounded-xl">
                 <View className="text-textCustom-primary text-sm font-bold">

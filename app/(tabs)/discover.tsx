@@ -393,7 +393,7 @@ export default function DiscoverScreen() {
               Import your TikTok or Instagram saves to see them here.
             </View>
             <AnimatedPressable
-              onPress={() => router.push('/(auth)/onboarding/import')}
+              onPress={() => useStore.getState().setModal('add')}
             >
               <View className="bg-accent-base px-6 py-3 rounded-xl">
                 <View className="text-textCustom-primary text-sm font-bold">
