@@ -3,11 +3,16 @@ import { View, Text, ScrollView, Dimensions, Pressable } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import LottieView from 'lottie-react-native';
-// useHeaderHeight removed: not available from @react-navigation/elements in SDK 56+
-// Auth screens use a standard 44pt nav bar height
+import Animated, {
+  FadeInDown,
+  FadeInRight,
+  Layout,
+  useSharedValue,
+  useAnimatedStyle,
+  withSpring,
+} from 'react-native-reanimated';
 
 import { Button } from '../../../components/Button';
-import { OnboardingProgress } from '../../../components/OnboardingProgress';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
@@ -30,27 +35,55 @@ const SLIDES = [
     title: 'Save with\nOne Tap',
     subtitle: 'Share from TikTok or Instagram and Stash handles the rest — title, creator, and AI tags.',
   },
-  {
-    id: '4',
-    lottieSource: require('../../../assets/lottie/onboarding-success.json'),
-    title: 'You are\nAll Set!',
-    subtitle: 'Your personal save brain is ready. Start exploring or import your existing collection.',
-  },
 ];
+
+function Dot({ isActive }: { isActive: boolean }) {
+  const scale = useSharedValue(isActive ? 1 : 0.7);
+
+  React.useEffect(() => {
+    scale.value = withSpring(isActive ? 1 : 0.7, {
+      damping: 15,
+      stiffness: 200,
+    });
+  }, [isActive]);
+
+  const animatedStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: scale.value }],
+  }));
+
+  return (
+    <Animated.View
+      style={[
+        {
+          width: isActive ? 24 : 8,
+          height: 8,
+          borderRadius: 4,
+          backgroundColor: isActive ? '#C4FB46' : '#333333',
+          marginHorizontal: 4,
+        },
+        animatedStyle,
+      ]}
+      layout={Layout.springify()}
+    />
+  );
+}
 
 export default function OnboardingScreen() {
   const insets = useSafeAreaInsets();
-  const headerHeight = 44; // standard iOS nav bar
   const scrollViewRef = useRef<ScrollView>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [showSkip, setShowSkip] = useState(false);
 
   const lottieRefs = useRef<(LottieView | null)[]>([]);
 
+  React.useEffect(() => {
+    const timer = setTimeout(() => setShowSkip(true), 500);
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleIndexChanged = (index: number) => {
     setCurrentIndex(index);
-
-    // Play current animation, reset others
     lottieRefs.current.forEach((ref, i) => {
       if (ref) {
         if (i === index) {
@@ -76,12 +109,12 @@ export default function OnboardingScreen() {
     if (currentIndex < SLIDES.length - 1) {
       scrollToIndex(currentIndex + 1);
     } else {
-      router.push('/import');
+      router.push('/(auth)/onboarding/how-found');
     }
   };
 
   const handleSkip = () => {
-    router.push('/import');
+    router.push('/(auth)/onboarding/how-found');
   };
 
   const handleScroll = (event: { nativeEvent: { contentOffset: { x: number } } }) => {
@@ -97,21 +130,26 @@ export default function OnboardingScreen() {
   return (
     <View style={{ flex: 1, backgroundColor: '#0A0A0A' }}>
       {/* Skip button */}
-      {!isLastSlide && (
-        <View style={{ paddingTop: insets.top + 12, paddingHorizontal: 20, alignItems: 'flex-end' }}>
+      {showSkip && !isLastSlide && (
+        <Animated.View
+          entering={FadeInDown.duration(400)}
+          style={{ paddingTop: insets.top + 12, paddingHorizontal: 20, alignItems: 'flex-end' }}
+        >
           <Pressable onPress={handleSkip}>
             <Text
-              style={{ color: '#888888', fontSize: 15, fontFamily: 'DMSans_400Regular' }}
+              style={{ color: '#888888', fontSize: 15, fontFamily: 'DMSans_500Medium' }}
             >
               Skip
             </Text>
           </Pressable>
-        </View>
+        </Animated.View>
       )}
 
-      {/* Progress */}
-      <View style={{ paddingHorizontal: 24, paddingTop: 8 }}>
-        <OnboardingProgress currentStep={currentIndex} totalSteps={SLIDES.length} />
+      {/* Dots */}
+      <View style={{ flexDirection: 'row', justifyContent: 'center', paddingTop: showSkip ? 8 : insets.top + 16, paddingBottom: 8 }}>
+        {SLIDES.map((_, index) => (
+          <Dot key={index} isActive={index === currentIndex} />
+        ))}
       </View>
 
       {/* Swiper */}
@@ -137,14 +175,7 @@ export default function OnboardingScreen() {
             }}
           >
             {/* Lottie Animation */}
-            <View
-              style={{
-                width: 280,
-                height: 280,
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
+            <View style={{ width: 280, height: 280, alignItems: 'center', justifyContent: 'center' }}>
               <LottieView
                 ref={(ref) => { lottieRefs.current[index] = ref; }}
                 source={slide.lottieSource}
@@ -154,33 +185,38 @@ export default function OnboardingScreen() {
               />
             </View>
 
-            {/* Text */}
+            {/* Text with staggered animation */}
             <View style={{ alignItems: 'center', marginTop: 48 }}>
-              <Text
-                style={{
-                  fontSize: 32,
-                  fontWeight: '800',
-                  color: '#FFFFFF',
-                  textAlign: 'center',
-                  fontFamily: 'Syne_800ExtraBold',
-                  lineHeight: 40,
-                }}
-              >
-                {slide.title}
-              </Text>
-              <Text
-                style={{
-                  fontSize: 16,
-                  color: '#888888',
-                  textAlign: 'center',
-                  fontFamily: 'DMSans_400Regular',
-                  lineHeight: 24,
-                  marginTop: 16,
-                  maxWidth: 300,
-                }}
-              >
-                {slide.subtitle}
-              </Text>
+              {index === currentIndex && (
+                <>
+                  <Animated.Text
+                    entering={FadeInDown.delay(100).duration(500)}
+                    style={{
+                      fontSize: 32,
+                      color: '#FFFFFF',
+                      textAlign: 'center',
+                      fontFamily: 'Syne_800ExtraBold',
+                      lineHeight: 40,
+                    }}
+                  >
+                    {slide.title}
+                  </Animated.Text>
+                  <Animated.Text
+                    entering={FadeInDown.delay(200).duration(500)}
+                    style={{
+                      fontSize: 16,
+                      color: '#888888',
+                      textAlign: 'center',
+                      fontFamily: 'DMSans_400Regular',
+                      lineHeight: 24,
+                      marginTop: 16,
+                      maxWidth: 300,
+                    }}
+                  >
+                    {slide.subtitle}
+                  </Animated.Text>
+                </>
+              )}
             </View>
           </View>
         ))}
@@ -194,12 +230,12 @@ export default function OnboardingScreen() {
           paddingTop: 16,
         }}
       >
-        <Button
-          title={isLastSlide ? 'Start Importing' : 'Next'}
-          onPress={handleNext}
-          loading={false}
-          disabled={false}
-        />
+        <Animated.View entering={FadeInDown.delay(300).duration(500)}>
+          <Button
+            title={isLastSlide ? 'Get Started' : 'Next'}
+            onPress={handleNext}
+          />
+        </Animated.View>
       </View>
     </View>
   );
