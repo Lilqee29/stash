@@ -36,6 +36,11 @@ jobs:
         env:
           DISABLE_IOS_SHARE_EXTENSION: "true"
 
+      - name: Verify entitlements were stripped
+        run: |
+          echo "--- Main app entitlements ---"
+          find ios -name "*.entitlements" -exec echo {} \; -exec cat {} \;
+
       - name: Install CocoaPods
         run: cd ios && pod install
 
