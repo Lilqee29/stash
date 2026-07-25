@@ -41,6 +41,7 @@ jobs:
         run: |
           rm -rf ~/Library/Developer/Xcode/DerivedData
           rm -rf ~/Library/Caches/com.apple.dt.Xcode
+          rm -rf ios/build
 
       - name: Build unsigned archive
         run: |
@@ -59,7 +60,7 @@ jobs:
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO \
             DEVELOPMENT_TEAM="" \
-            clean archive 2>&1 | xcbeautify
+            archive 2>&1 | xcbeautify
 
       - name: Package unsigned IPA
         run: |
