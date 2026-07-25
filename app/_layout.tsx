@@ -79,14 +79,8 @@ function InnerLayout() {
           animation: 'fade',
         }}
       >
-        {!hasCompletedOnboarding ? (
-          <Stack.Screen name="(auth)" />
-        ) : (
-          <>
-            <Stack.Screen name="(tabs)" />
-            <Stack.Screen name="(auth)" />
-          </>
-        )}
+        <Stack.Screen name="(auth)" />
+        <Stack.Screen name="(tabs)" />
         <Stack.Screen name="share" options={{ presentation: 'transparentModal', animation: 'slide_from_bottom' }} />
       </Stack>
     </View>
