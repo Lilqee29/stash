@@ -3,6 +3,7 @@ import { View, Text, TextInput, Pressable, KeyboardAvoidingView, Platform, Scrol
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { supabase } from '../../lib/supabase';
+import { useStore } from '../../hooks/useStore';
 import { Button } from '../../components/Button';
 import { Image } from 'react-native';
 
@@ -32,7 +33,7 @@ export default function SignInScreen() {
         setErrorMessage(error.message);
       } else {
         // Proceed to next step in onboarding
-        router.push('/onboarding/how-found');
+        router.push('/(auth)/onboarding/how-found');
       }
     } catch (err: any) {
       setErrorMessage(err.message || 'An unexpected error occurred.');
@@ -43,7 +44,8 @@ export default function SignInScreen() {
 
   // Safe developer bypass to facilitate onboarding reviews
   const handleDeveloperBypass = () => {
-    router.push('/onboarding/how-found');
+    useStore.getState().completeOnboarding();
+    router.replace('/(tabs)/home');
   };
 
   return (

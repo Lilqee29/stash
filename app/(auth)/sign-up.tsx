@@ -32,8 +32,8 @@ export default function SignUpScreen() {
       if (error) {
         setErrorMessage(error.message);
       } else {
-        // Sign-up successful, route to app dashboard (or splash for now)
-        router.push('/splash');
+        // Sign-up successful, go to how-found survey
+        router.push('/(auth)/onboarding/how-found');
       }
     } catch (err: any) {
       setErrorMessage(err.message || 'An unexpected error occurred.');
