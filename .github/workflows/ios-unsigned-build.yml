@@ -33,6 +33,8 @@ jobs:
 
       - name: Generate native iOS project
         run: npx expo prebuild --platform ios --clean
+        env:
+          DISABLE_IOS_SHARE_EXTENSION: "true"
 
       - name: Install CocoaPods
         run: cd ios && pod install
