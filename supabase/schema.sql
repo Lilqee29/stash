@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS public.saves (
   cast_list JSONB,
   available_on JSONB,
   mentioned_in JSONB,
+  enrichment JSONB,
   user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE DEFAULT auth.uid(),
   created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now())
 );

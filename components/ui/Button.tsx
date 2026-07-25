@@ -86,7 +86,7 @@ export function Button({
             {leftIcon && <View className="opacity-90">{leftIcon}</View>}
             <Text
               className={`font-dmsans text-center ${textStyles[variant]}`}
-              style={{ fontFamily: 'DMSans_500Medium' }}
+              style={{ fontFamily: 'Inter_500Medium' }}
             >
               {title}
             </Text>

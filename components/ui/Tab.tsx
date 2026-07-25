@@ -58,7 +58,7 @@ export function Tab({
           className={`text-xs font-dmsans tracking-wide ${
             active ? `${activeTextColorClass} font-semibold` : 'text-textCustom-secondary font-medium'
           }`}
-          style={{ fontFamily: 'DMSans_500Medium' }}
+          style={{ fontFamily: 'Inter_500Medium' }}
         >
           {label}
         </Text>

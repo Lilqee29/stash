@@ -89,7 +89,7 @@ export function AnimatedSearch({
             placeholder={placeholder}
             placeholderTextColor="#555555"
             className="flex-1 text-textCustom-primary text-sm font-dmsans"
-            style={{ fontFamily: 'DMSans_400Regular' }}
+            style={{ fontFamily: 'Inter_400Regular' }}
             returnKeyType="search"
             autoCorrect={false}
             {...rest}
@@ -110,7 +110,7 @@ export function AnimatedSearch({
           <Pressable onPress={handleCancel} className="py-2 px-1">
             <Animated.Text
               className="text-sm text-accent-base font-medium"
-              style={{ fontFamily: 'DMSans_500Medium' }}
+              style={{ fontFamily: 'Inter_500Medium' }}
             >
               Cancel
             </Animated.Text>

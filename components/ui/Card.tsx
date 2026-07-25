@@ -95,7 +95,7 @@ export function CardTitle({ children, className = '' }: { children: React.ReactN
   return (
     <Text 
       className={`text-white text-base font-syne tracking-tight ${className}`}
-      style={{ fontFamily: 'Syne_700Bold' }}
+      style={{ fontFamily: 'PlusJakartaSans_700Bold' }}
       numberOfLines={1}
     >
       {children}
@@ -107,7 +107,7 @@ export function CardDescription({ children, className = '' }: { children: React.
   return (
     <Text 
       className={`text-textCustom-secondary text-xs font-dmsans ${className}`}
-      style={{ fontFamily: 'DMSans_400Regular' }}
+      style={{ fontFamily: 'Inter_400Regular' }}
     >
       {children}
     </Text>

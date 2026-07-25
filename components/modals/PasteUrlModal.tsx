@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import {
   View,
   Text,
@@ -10,10 +10,18 @@ import {
   Platform as RNPlatform,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { Image } from 'expo-image';
 import * as Clipboard from 'expo-clipboard';
+import Animated, { FadeIn, FadeInDown } from 'react-native-reanimated';
 import ModalShell from './ModalShell';
 import { useStore } from '../../hooks/useStore';
 import { detectPlatform, isValidUrl, platformLabel } from '../../lib/detectPlatform';
+import {
+  fetchVideoMetadata,
+  getDisplayTitle,
+  getPreviewSubtitle,
+  VideoMetadata,
+} from '../../lib/fetchMetadata';
 
 interface PasteUrlModalProps {
   visible: boolean;
@@ -22,14 +30,20 @@ interface PasteUrlModalProps {
   onClose: () => void;
 }
 
-type SaveState = 'idle' | 'saving' | 'success' | 'error';
+type SaveState = 'idle' | 'fetching' | 'preview' | 'saving' | 'success' | 'error';
+
+const ACCENT = '#8EC934';
 
 export default function PasteUrlModal({ visible, value, onChangeText, onClose }: PasteUrlModalProps) {
   const addSave = useStore((s) => s.addSave);
+  const triggerEnrichment = useStore((s) => s.triggerEnrichment);
   const folders = useStore((s) => s.folders);
   const [saveState, setSaveState] = useState<SaveState>('idle');
   const [errorMsg, setErrorMsg] = useState('');
   const [selectedFolderId, setSelectedFolderId] = useState<string | null>(null);
+  const [metadata, setMetadata] = useState<VideoMetadata | null>(null);
+  const [editableTitle, setEditableTitle] = useState('');
+  const fetchTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const detectedPlatform = value.trim() ? detectPlatform(value.trim()) : null;
   const urlValid = value.trim() ? isValidUrl(value.trim()) : false;
@@ -40,8 +54,38 @@ export default function PasteUrlModal({ visible, value, onChangeText, onClose }:
       setSaveState('idle');
       setErrorMsg('');
       setSelectedFolderId(null);
+      setMetadata(null);
+      setEditableTitle('');
     }
   }, [visible]);
+
+  // Auto-fetch metadata when URL stabilizes
+  useEffect(() => {
+    if (fetchTimeoutRef.current) {
+      clearTimeout(fetchTimeoutRef.current);
+    }
+
+    if (!urlValid || saveState === 'saving' || saveState === 'success') {
+      return;
+    }
+
+    // Debounce: wait 600ms after user stops typing
+    fetchTimeoutRef.current = setTimeout(async () => {
+      setSaveState('fetching');
+      try {
+        const meta = await fetchVideoMetadata(value.trim());
+        setMetadata(meta);
+        setEditableTitle(getDisplayTitle(meta));
+        setSaveState('preview');
+      } catch {
+        setSaveState('idle');
+      }
+    }, 600);
+
+    return () => {
+      if (fetchTimeoutRef.current) clearTimeout(fetchTimeoutRef.current);
+    };
+  }, [value, urlValid]);
 
   const handlePasteFromClipboard = useCallback(async () => {
     try {
@@ -67,14 +111,27 @@ export default function PasteUrlModal({ visible, value, onChangeText, onClose }:
 
     try {
       const platform = detectPlatform(trimmed);
+      const title = editableTitle.trim() || metadata?.title || trimmed.replace(/^https?:\/\//, '').split('/')[0];
 
       await addSave({
-        title: trimmed.replace(/^https?:\/\//, '').split('/')[0] + ' save',
+        title,
         url: trimmed,
         platform,
-        folderId: selectedFolderId,
+        folderId: selectedFolderId, // null = unsorted
         savedAt: new Date().toISOString(),
+        thumbnailUrl: metadata?.thumbnail || undefined,
+        creator: metadata?.creator || undefined,
+        description: metadata?.description || undefined,
+        contentType: metadata?.contentType || undefined,
       });
+
+      // Fire-and-forget: trigger Gemini enrichment in background
+      // Get the save ID from the store (it was just added)
+      const currentSaves = useStore.getState().saves;
+      const newSave = currentSaves.find((s) => s.url === trimmed);
+      if (newSave) {
+        triggerEnrichment(newSave.id, trimmed);
+      }
 
       setSaveState('success');
 
@@ -87,18 +144,21 @@ export default function PasteUrlModal({ visible, value, onChangeText, onClose }:
       setSaveState('error');
       setErrorMsg('Failed to save. Please try again.');
     }
-  }, [value, selectedFolderId, addSave, onChangeText, onClose]);
+  }, [value, selectedFolderId, editableTitle, metadata, addSave, onChangeText, onClose]);
 
   const handleClose = useCallback(() => {
     onChangeText('');
     onClose();
   }, [onChangeText, onClose]);
 
+  const isWorking = saveState === 'fetching' || saveState === 'saving';
+  const hasPreview = metadata && (saveState === 'preview' || saveState === 'saving' || saveState === 'success');
+
   return (
     <ModalShell
       visible={visible}
       title="Paste URL"
-      description="Paste a link to any TikTok, Instagram post, or webpage."
+      description="Paste a link to any TikTok, Instagram reel, or webpage."
       onClose={handleClose}
     >
       <KeyboardAvoidingView
@@ -111,17 +171,21 @@ export default function PasteUrlModal({ visible, value, onChangeText, onClose }:
             onChangeText={(text) => {
               onChangeText(text);
               if (saveState === 'error') setSaveState('idle');
+              if (saveState === 'preview') {
+                setSaveState('idle');
+                setMetadata(null);
+              }
             }}
-            placeholder="https://tiktok.com/@user/video/..."
+            placeholder="https://instagram.com/reel/..."
             placeholderTextColor="#555"
             style={styles.input}
             autoCapitalize="none"
             autoCorrect={false}
             keyboardType="url"
-            editable={saveState !== 'saving'}
+            editable={!isWorking}
           />
-          {value.length > 0 && saveState !== 'saving' && (
-            <Pressable onPress={() => onChangeText('')} style={styles.clearBtn}>
+          {value.length > 0 && !isWorking && (
+            <Pressable onPress={() => { onChangeText(''); setMetadata(null); setSaveState('idle'); }} style={styles.clearBtn}>
               <Ionicons name="close-circle" size={18} color="#555" />
             </Pressable>
           )}
@@ -131,28 +195,93 @@ export default function PasteUrlModal({ visible, value, onChangeText, onClose }:
         <Pressable
           onPress={handlePasteFromClipboard}
           style={styles.pasteBtn}
-          disabled={saveState === 'saving'}
+          disabled={isWorking}
         >
-          <Ionicons name="clipboard-outline" size={16} color="#8EC934" />
+          <Ionicons name="clipboard-outline" size={16} color={ACCENT} />
           <Text style={styles.pasteBtnText}>Paste from clipboard</Text>
         </Pressable>
 
-        {/* Platform Detection Badge */}
-        {detectedPlatform && urlValid && (
-          <View style={styles.platformBadge}>
-            <View style={styles.platformDot} />
-            <Text style={styles.platformText}>{platformLabel(detectedPlatform)}</Text>
-          </View>
+        {/* ── RICH PREVIEW (when metadata loaded) ──────────── */}
+        {hasPreview && metadata && (
+          <Animated.View entering={FadeIn.duration(250)} style={styles.previewCard}>
+            {/* Thumbnail */}
+            {metadata.thumbnail ? (
+              <Image
+                source={{ uri: metadata.thumbnail }}
+                style={styles.thumbnail}
+                contentFit="cover"
+                transition={300}
+              />
+            ) : (
+              <View style={[styles.thumbnail, styles.thumbnailPlaceholder]}>
+                <Ionicons
+                  name={
+                    metadata.platform === 'instagram'
+                      ? 'logo-instagram'
+                      : metadata.platform === 'tiktok'
+                      ? 'logo-tiktok'
+                      : 'globe-outline'
+                  }
+                  size={28}
+                  color="#555"
+                />
+              </View>
+            )}
+
+            {/* Info + Editable Title */}
+            <View style={styles.previewInfo}>
+              {/* Platform badge */}
+              <View style={styles.platformBadgeRow}>
+                <View style={[styles.platformDot, { backgroundColor: getPlatformColor(metadata.platform) }]} />
+                <Text style={styles.platformBadgeText}>
+                  {platformLabel(metadata.platform)}
+                </Text>
+                {metadata.contentType && metadata.contentType !== 'default' && (
+                  <>
+                    <Text style={styles.platformSep}>·</Text>
+                    <Text style={styles.platformBadgeText}>
+                      {metadata.contentType.charAt(0).toUpperCase() + metadata.contentType.slice(1)}
+                    </Text>
+                  </>
+                )}
+              </View>
+
+              {/* Editable title */}
+              <TextInput
+                value={editableTitle}
+                onChangeText={setEditableTitle}
+                style={styles.titleInput}
+                placeholder="Enter title..."
+                placeholderTextColor="#555"
+                numberOfLines={2}
+                multiline
+                editable={!isWorking}
+              />
+
+              {/* Creator / subtitle */}
+              {metadata.creator ? (
+                <Text style={styles.creatorText} numberOfLines={1}>
+                  @{metadata.creator}
+                </Text>
+              ) : null}
+            </View>
+          </Animated.View>
         )}
 
-        {/* Preview Card */}
-        {urlValid ? (
+        {/* ── SIMPLE PREVIEW (before metadata loads) ────────── */}
+        {!hasPreview && urlValid && (
           <View style={styles.previewCard}>
             <View style={styles.previewIcon}>
               <Ionicons
-                name={detectedPlatform === 'tiktok' ? 'logo-tiktok' : detectedPlatform === 'instagram' ? 'logo-instagram' : 'globe-outline'}
+                name={
+                  detectedPlatform === 'tiktok'
+                    ? 'logo-tiktok'
+                    : detectedPlatform === 'instagram'
+                    ? 'logo-instagram'
+                    : 'globe-outline'
+                }
                 size={20}
-                color="#8EC934"
+                color={ACCENT}
               />
             </View>
             <View style={styles.previewInfo}>
@@ -163,8 +292,14 @@ export default function PasteUrlModal({ visible, value, onChangeText, onClose }:
                 {detectedPlatform ? platformLabel(detectedPlatform) : 'Web'} · Ready to save
               </Text>
             </View>
+            {saveState === 'fetching' && (
+              <ActivityIndicator size="small" color={ACCENT} />
+            )}
           </View>
-        ) : value.trim().length > 0 && !urlValid ? (
+        )}
+
+        {/* Invalid URL */}
+        {value.trim().length > 0 && !urlValid && (
           <View style={styles.previewCard}>
             <View style={[styles.previewIcon, { backgroundColor: '#2C1A1A' }]}>
               <Ionicons name="alert-circle-outline" size={20} color="#FF453A" />
@@ -174,9 +309,9 @@ export default function PasteUrlModal({ visible, value, onChangeText, onClose }:
               <Text style={styles.previewPlatform}>Enter a full URL starting with https://</Text>
             </View>
           </View>
-        ) : null}
+        )}
 
-        {/* Folder Selection (compact) */}
+        {/* ── FOLDER SELECTION ──────────────────────────────── */}
         {folders.length > 0 && (
           <View style={styles.folderSection}>
             <Text style={styles.folderLabel}>Save to folder</Text>
@@ -188,6 +323,11 @@ export default function PasteUrlModal({ visible, value, onChangeText, onClose }:
                   selectedFolderId === null && styles.folderChipActive,
                 ]}
               >
+                <Ionicons
+                  name="folder-outline"
+                  size={13}
+                  color={selectedFolderId === null ? ACCENT : '#888'}
+                />
                 <Text
                   style={[
                     styles.folderChipText,
@@ -206,6 +346,11 @@ export default function PasteUrlModal({ visible, value, onChangeText, onClose }:
                     selectedFolderId === f.id && styles.folderChipActive,
                   ]}
                 >
+                  <Ionicons
+                    name="folder-outline"
+                    size={13}
+                    color={selectedFolderId === f.id ? ACCENT : '#888'}
+                  />
                   <Text
                     style={[
                       styles.folderChipText,
@@ -221,41 +366,45 @@ export default function PasteUrlModal({ visible, value, onChangeText, onClose }:
           </View>
         )}
 
-        {/* Error Message */}
+        {/* ── STATUS MESSAGES ────────────────────────────────── */}
         {saveState === 'error' && errorMsg.length > 0 && (
-          <View style={styles.errorRow}>
+          <Animated.View entering={FadeInDown.duration(200)} style={styles.errorRow}>
             <Ionicons name="alert-circle" size={14} color="#FF453A" />
             <Text style={styles.errorText}>{errorMsg}</Text>
-          </View>
+          </Animated.View>
         )}
 
-        {/* Success Message */}
         {saveState === 'success' && (
-          <View style={styles.successRow}>
+          <Animated.View entering={FadeInDown.duration(200)} style={styles.successRow}>
             <Ionicons name="checkmark-circle" size={14} color="#30D158" />
             <Text style={styles.successText}>Saved to your library!</Text>
-          </View>
+          </Animated.View>
         )}
 
-        {/* Action Buttons */}
+        {/* ── ACTION BUTTONS ─────────────────────────────────── */}
         <View style={styles.buttonRow}>
           <Pressable
             style={styles.secondaryButton}
             onPress={handleClose}
-            disabled={saveState === 'saving'}
+            disabled={isWorking}
           >
             <Text style={styles.secondaryButtonText}>Cancel</Text>
           </Pressable>
           <Pressable
             style={[
               styles.primaryButton,
-              (!urlValid || saveState === 'saving' || saveState === 'success') &&
+              (!urlValid || isWorking || saveState === 'success') &&
                 styles.primaryButtonDisabled,
             ]}
             onPress={handleSave}
-            disabled={!urlValid || saveState === 'saving' || saveState === 'success'}
+            disabled={!urlValid || isWorking || saveState === 'success'}
           >
-            {saveState === 'saving' ? (
+            {saveState === 'fetching' ? (
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                <ActivityIndicator color="#0A0A0A" size="small" />
+                <Text style={styles.primaryButtonText}>Fetching...</Text>
+              </View>
+            ) : saveState === 'saving' ? (
               <ActivityIndicator color="#0A0A0A" size="small" />
             ) : saveState === 'success' ? (
               <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
@@ -263,13 +412,26 @@ export default function PasteUrlModal({ visible, value, onChangeText, onClose }:
                 <Text style={styles.primaryButtonText}>Saved</Text>
               </View>
             ) : (
-              <Text style={styles.primaryButtonText}>Save URL</Text>
+              <Text style={styles.primaryButtonText}>
+                {hasPreview ? 'Save to Stash' : 'Save URL'}
+              </Text>
             )}
           </Pressable>
         </View>
       </KeyboardAvoidingView>
     </ModalShell>
   );
+}
+
+function getPlatformColor(platform: string): string {
+  switch (platform) {
+    case 'tiktok':
+      return '#EE1D52';
+    case 'instagram':
+      return '#E1306C';
+    default:
+      return ACCENT;
+  }
 }
 
 const styles = StyleSheet.create({
@@ -288,7 +450,7 @@ const styles = StyleSheet.create({
     flex: 1,
     color: '#fff',
     fontSize: 14,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Inter_400Regular',
   },
   clearBtn: {
     padding: 4,
@@ -306,45 +468,35 @@ const styles = StyleSheet.create({
     marginBottom: 14,
   },
   pasteBtnText: {
-    color: '#8EC934',
+    color: ACCENT,
     fontSize: 13,
     fontWeight: '600',
-    fontFamily: 'DMSans_500Medium',
-  },
-  platformBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-    marginBottom: 12,
-  },
-  platformDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    backgroundColor: '#8EC934',
-  },
-  platformText: {
-    color: '#8EC934',
-    fontSize: 12,
-    fontWeight: '700',
-    fontFamily: 'DMSans_700Bold',
-    letterSpacing: 0.5,
-    textTransform: 'uppercase',
+    fontFamily: 'Inter_500Medium',
   },
   previewCard: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#181818',
     borderRadius: 14,
-    padding: 14,
+    padding: 12,
     borderWidth: 1,
     borderColor: '#242424',
     marginBottom: 14,
     gap: 12,
   },
+  thumbnail: {
+    width: 64,
+    height: 64,
+    borderRadius: 10,
+    backgroundColor: '#222',
+  },
+  thumbnailPlaceholder: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   previewIcon: {
-    width: 40,
-    height: 40,
+    width: 48,
+    height: 48,
     borderRadius: 12,
     backgroundColor: 'rgba(142, 201, 52, 0.1)',
     alignItems: 'center',
@@ -357,13 +509,49 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 13,
     fontWeight: '600',
-    fontFamily: 'DMSans_500Medium',
+    fontFamily: 'Inter_500Medium',
   },
   previewPlatform: {
     color: '#888',
     fontSize: 11,
     marginTop: 2,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Inter_400Regular',
+  },
+  platformBadgeRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+    marginBottom: 6,
+  },
+  platformDot: {
+    width: 7,
+    height: 7,
+    borderRadius: 4,
+  },
+  platformBadgeText: {
+    color: '#888',
+    fontSize: 11,
+    fontWeight: '600',
+    fontFamily: 'Inter_600SemiBold',
+    letterSpacing: 0.3,
+    textTransform: 'uppercase',
+  },
+  platformSep: {
+    color: '#555',
+    fontSize: 11,
+  },
+  titleInput: {
+    color: '#fff',
+    fontSize: 15,
+    fontWeight: '600',
+    fontFamily: 'Inter_600SemiBold',
+    padding: 0,
+    marginBottom: 2,
+  },
+  creatorText: {
+    color: '#888',
+    fontSize: 12,
+    fontFamily: 'Inter_400Regular',
   },
   folderSection: {
     marginBottom: 14,
@@ -373,7 +561,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '600',
     marginBottom: 8,
-    fontFamily: 'DMSans_500Medium',
+    fontFamily: 'Inter_500Medium',
   },
   folderChips: {
     flexDirection: 'row',
@@ -381,6 +569,9 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   folderChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
     paddingHorizontal: 12,
     paddingVertical: 7,
     borderRadius: 10,
@@ -390,16 +581,16 @@ const styles = StyleSheet.create({
   },
   folderChipActive: {
     backgroundColor: 'rgba(142, 201, 52, 0.12)',
-    borderColor: '#8EC934',
+    borderColor: ACCENT,
   },
   folderChipText: {
     color: '#888',
     fontSize: 12,
     fontWeight: '600',
-    fontFamily: 'DMSans_500Medium',
+    fontFamily: 'Inter_500Medium',
   },
   folderChipTextActive: {
-    color: '#8EC934',
+    color: ACCENT,
   },
   errorRow: {
     flexDirection: 'row',
@@ -411,7 +602,7 @@ const styles = StyleSheet.create({
     color: '#FF453A',
     fontSize: 12,
     fontWeight: '500',
-    fontFamily: 'DMSans_500Medium',
+    fontFamily: 'Inter_500Medium',
   },
   successRow: {
     flexDirection: 'row',
@@ -423,7 +614,7 @@ const styles = StyleSheet.create({
     color: '#30D158',
     fontSize: 12,
     fontWeight: '500',
-    fontFamily: 'DMSans_500Medium',
+    fontFamily: 'Inter_500Medium',
   },
   buttonRow: {
     flexDirection: 'row',
@@ -442,12 +633,12 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: '700',
     fontSize: 14,
-    fontFamily: 'DMSans_700Bold',
+    fontFamily: 'Inter_700Bold',
   },
   primaryButton: {
     flex: 1,
     borderRadius: 14,
-    backgroundColor: '#8EC934',
+    backgroundColor: ACCENT,
     paddingVertical: 14,
     alignItems: 'center',
     justifyContent: 'center',
@@ -459,6 +650,6 @@ const styles = StyleSheet.create({
     color: '#0A0A0A',
     fontWeight: '700',
     fontSize: 14,
-    fontFamily: 'DMSans_700Bold',
+    fontFamily: 'Inter_700Bold',
   },
 });

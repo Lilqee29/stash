@@ -59,13 +59,13 @@ export default function SignUpScreen() {
           <View className="mb-6">
             <Text 
               className="text-white text-3xl font-syne tracking-tighter"
-              style={{ fontFamily: 'Syne_700Bold', letterSpacing: -0.02 }}
+              style={{ fontFamily: 'PlusJakartaSans_700Bold', letterSpacing: -0.02 }}
             >
               Create Account
             </Text>
             <Text 
               className="text-textCustom-secondary text-sm font-dmsans mt-2"
-              style={{ fontFamily: 'DMSans_400Regular' }}
+              style={{ fontFamily: 'Inter_400Regular' }}
             >
               Sign up to permanently save your organized stash.
             </Text>
@@ -74,7 +74,7 @@ export default function SignUpScreen() {
           <View className="my-6 space-y-4">
             {errorMessage && (
               <View className="bg-semantic-error/10 border border-semantic-error/30 p-4 rounded-xl mb-2">
-                <Text className="text-semantic-error text-xs font-dmsans text-center" style={{ fontFamily: 'DMSans_400Regular' }}>
+                <Text className="text-semantic-error text-xs font-dmsans text-center" style={{ fontFamily: 'Inter_400Regular' }}>
                   {errorMessage}
                 </Text>
               </View>
@@ -87,7 +87,7 @@ export default function SignUpScreen() {
                 className="flex-1 bg-white flex-row items-center justify-center py-3.5 rounded-[12px]"
               >
                 <FontAwesome5 name="apple" size={18} color="black" className="mr-2" />
-                <Text className="text-black font-dmsans font-medium text-sm ml-2" style={{ fontFamily: 'DMSans_500Medium' }}>
+                <Text className="text-black font-dmsans font-medium text-sm ml-2" style={{ fontFamily: 'Inter_500Medium' }}>
                   Apple
                 </Text>
               </Pressable>
@@ -97,7 +97,7 @@ export default function SignUpScreen() {
                 className="flex-1 bg-background-secondary border border-borderCustom-subtle flex-row items-center justify-center py-3.5 rounded-[12px]"
               >
                 <FontAwesome5 name="google" size={16} color="white" className="mr-2" />
-                <Text className="text-white font-dmsans font-medium text-sm ml-2" style={{ fontFamily: 'DMSans_500Medium' }}>
+                <Text className="text-white font-dmsans font-medium text-sm ml-2" style={{ fontFamily: 'Inter_500Medium' }}>
                   Google
                 </Text>
               </Pressable>
@@ -106,7 +106,7 @@ export default function SignUpScreen() {
             {/* Divider */}
             <View className="flex-row items-center my-4 opacity-60">
               <View className="flex-1 h-[1px] bg-borderCustom-subtle" />
-              <Text className="mx-4 text-textCustom-tertiary text-xs font-dmsans" style={{ fontFamily: 'DMSans_400Regular' }}>OR</Text>
+              <Text className="mx-4 text-textCustom-tertiary text-xs font-dmsans" style={{ fontFamily: 'Inter_400Regular' }}>OR</Text>
               <View className="flex-1 h-[1px] bg-borderCustom-subtle" />
             </View>
 
@@ -114,7 +114,7 @@ export default function SignUpScreen() {
             <View>
               <TextInput
                 className="w-full bg-background-tertiary border border-borderCustom-subtle text-white px-4 py-3.5 rounded-[12px] font-dmsans text-sm focus:border-accent-base"
-                style={{ fontFamily: 'DMSans_400Regular' }}
+                style={{ fontFamily: 'Inter_400Regular' }}
                 placeholder="Email Address"
                 placeholderTextColor="#555555"
                 keyboardType="email-address"
@@ -129,7 +129,7 @@ export default function SignUpScreen() {
             <View className="mt-3 relative justify-center">
               <TextInput
                 className="w-full bg-background-tertiary border border-borderCustom-subtle text-white px-4 py-3.5 pr-12 rounded-[12px] font-dmsans text-sm focus:border-accent-base"
-                style={{ fontFamily: 'DMSans_400Regular' }}
+                style={{ fontFamily: 'Inter_400Regular' }}
                 placeholder="Password"
                 placeholderTextColor="#555555"
                 secureTextEntry={!showPassword}
@@ -157,11 +157,11 @@ export default function SignUpScreen() {
             />
 
             <View className="flex-row justify-center mt-4">
-              <Text className="text-textCustom-secondary text-xs font-dmsans" style={{ fontFamily: 'DMSans_400Regular' }}>
+              <Text className="text-textCustom-secondary text-xs font-dmsans" style={{ fontFamily: 'Inter_400Regular' }}>
                 Already have an account?{' '}
               </Text>
               <Pressable onPress={() => router.push('/sign-in')}>
-                <Text className="text-accent-bright text-xs font-dmsans font-medium" style={{ fontFamily: 'DMSans_500Medium' }}>
+                <Text className="text-accent-bright text-xs font-dmsans font-medium" style={{ fontFamily: 'Inter_500Medium' }}>
                   Log In
                 </Text>
               </Pressable>

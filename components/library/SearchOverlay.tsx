@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   searchInputField: {
     flex: 1,
     color: '#FFFFFF',
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Inter_400Regular',
     fontSize: 14,
   },
   scrollContent: {
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
   },
   searchHelpHeading: {
     color: 'rgba(255,255,255,0.3)',
-    fontFamily: 'DMSans_600SemiBold',
+    fontFamily: 'Inter_600SemiBold',
     fontSize: 11,
     letterSpacing: 0.8,
     textTransform: 'uppercase',
@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
   },
   suggestedSearchText: {
     color: 'rgba(255,255,255,0.7)',
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Inter_400Regular',
     fontSize: 14,
   },
   searchTipBox: {
@@ -203,14 +203,14 @@ const styles = StyleSheet.create({
   },
   searchTipText: {
     color: 'rgba(255,255,255,0.5)',
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Inter_400Regular',
     fontSize: 12,
     lineHeight: 18,
     flex: 1,
   },
   searchResultsCount: {
     color: '#8EC934',
-    fontFamily: 'DMSans_700Bold',
+    fontFamily: 'Inter_700Bold',
     fontSize: 10,
     letterSpacing: 1,
     marginBottom: 18,
@@ -237,13 +237,13 @@ const styles = StyleSheet.create({
   },
   searchResultTitle: {
     color: '#FFFFFF',
-    fontFamily: 'DMSans_500Medium',
+    fontFamily: 'Inter_500Medium',
     fontSize: 13,
     lineHeight: 17,
   },
   searchResultMetadata: {
     color: 'rgba(255,255,255,0.3)',
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Inter_400Regular',
     fontSize: 10,
     marginTop: 2,
   },
@@ -253,7 +253,7 @@ const styles = StyleSheet.create({
   },
   emptyResultsText: {
     color: '#555555',
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Inter_400Regular',
     fontSize: 13,
     marginTop: 12,
   },

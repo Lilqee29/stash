@@ -52,12 +52,12 @@ function QuickAction({
           <View className="w-10 h-10 rounded-xl bg-accent-surface items-center justify-center mb-2.5">
             <Ionicons name={icon as any} size={20} color="#8EC934" />
           </View>
-          <View className="text-textCustom-primary text-xl font-extrabold tracking-tight">
+          <Text className="text-textCustom-primary text-xl font-extrabold tracking-tight">
             {count}
-          </View>
-          <View className="text-textCustom-tertiary text-[11px] font-medium mt-0.5">
+          </Text>
+          <Text className="text-textCustom-tertiary text-[11px] font-medium mt-0.5">
             {label}
-          </View>
+          </Text>
         </View>
       </AnimatedPressable>
     </AnimatedView>
@@ -83,15 +83,15 @@ function CategoryRow({
       <AnimatedPressable onPress={onPress}>
         <View className="flex-row items-center px-5 py-3.5 border-b border-white/[0.03]">
           <View className="w-11 h-11 rounded-xl bg-background-secondary items-center justify-center mr-3.5 border border-white/[0.07]">
-            <View className="text-xl">{emoji}</View>
+            <Text className="text-xl">{emoji}</Text>
           </View>
           <View className="flex-1">
-            <View className="text-textCustom-primary text-sm font-semibold">
+            <Text className="text-textCustom-primary text-sm font-semibold">
               {label}
-            </View>
-            <View className="text-textCustom-tertiary text-[11px] mt-0.5">
+            </Text>
+            <Text className="text-textCustom-tertiary text-[11px] mt-0.5">
               {count} saves
-            </View>
+            </Text>
           </View>
           <Ionicons name="chevron-forward" size={16} color="#333" />
         </View>
@@ -135,9 +135,9 @@ function SaveCard({
           <Text className="text-textCustom-primary text-xs font-semibold leading-4" numberOfLines={2}>
             {item.title}
           </Text>
-          <View className="text-textCustom-tertiary text-[10px] mt-0.5">
+          <Text className="text-textCustom-tertiary text-[10px] mt-0.5">
             {timeAgo(item.savedAt)}
-          </View>
+          </Text>
         </View>
       </AnimatedPressable>
     </AnimatedView>
@@ -210,9 +210,9 @@ export default function DiscoverScreen() {
     return (
       <SafeAreaView className="flex-1 bg-background-primary">
         <View className="px-5 pt-2 pb-5">
-          <View className="text-textCustom-primary text-[32px] font-extrabold tracking-tight">
+          <Text className="text-textCustom-primary text-[32px] font-extrabold tracking-tight">
             Discover
-          </View>
+          </Text>
         </View>
         <View className="px-5 gap-3">
           {[1, 2, 3].map((i) => (
@@ -231,9 +231,9 @@ export default function DiscoverScreen() {
       >
         {/* ── HEADER ─────────────────────────────────────────── */}
         <AnimatedView entry="fadeIn" delay={0} className="flex-row justify-between items-center px-5 pb-5">
-          <View className="text-textCustom-primary text-[32px] font-extrabold tracking-tight">
+          <Text className="text-textCustom-primary text-[32px] font-extrabold tracking-tight">
             Discover
-          </View>
+          </Text>
           <AnimatedPressable onPress={() => router.push('/notifications')}>
             <View className="w-[38px] h-[38px] rounded-xl items-center justify-center bg-white/[0.06]">
               <Ionicons name="notifications-outline" size={20} color="#888" />
@@ -270,13 +270,13 @@ export default function DiscoverScreen() {
         {recentSavesList.length > 0 && (
           <>
             <View className="flex-row justify-between items-center px-5 mb-3.5 mt-1">
-              <View className="text-textCustom-primary text-lg font-bold tracking-tight">
+              <Text className="text-textCustom-primary text-lg font-bold tracking-tight">
                 Recently Added
-              </View>
+              </Text>
               <AnimatedPressable onPress={() => router.push('/recently-imported')}>
-                <View className="text-textCustom-accent text-[13px] font-semibold">
+                <Text className="text-textCustom-accent text-[13px] font-semibold">
                   See all
-                </View>
+                </Text>
               </AnimatedPressable>
             </View>
 
@@ -301,14 +301,14 @@ export default function DiscoverScreen() {
         {topPicks.length > 0 && (
           <>
             <View className="flex-row justify-between items-center px-5 mb-3.5 mt-1">
-              <View className="text-textCustom-primary text-lg font-bold tracking-tight">
+              <Text className="text-textCustom-primary text-lg font-bold tracking-tight">
                 Top Picks
-              </View>
+              </Text>
               <View className="flex-row items-center gap-1 bg-accent-surface px-2 py-1 rounded-lg">
                 <Ionicons name="trending-up" size={12} color="#8EC934" />
-                <View className="text-textCustom-accent text-[11px] font-semibold">
+                <Text className="text-textCustom-accent text-[11px] font-semibold">
                   Trending
-                </View>
+                </Text>
               </View>
             </View>
 
@@ -338,9 +338,9 @@ export default function DiscoverScreen() {
                         {item.savesCount && (
                           <View className="absolute top-2 right-2 flex-row items-center gap-0.5 bg-black/60 px-1.5 py-0.5 rounded-md">
                             <Ionicons name="diamond" size={10} color="#8EC934" />
-                            <View className="text-textCustom-accent text-[10px] font-bold">
+                            <Text className="text-textCustom-accent text-[10px] font-bold">
                               {item.savesCount}
-                            </View>
+                            </Text>
                           </View>
                         )}
                       </View>
@@ -359,12 +359,12 @@ export default function DiscoverScreen() {
         {categoryData.length > 0 && (
           <>
             <View className="flex-row justify-between items-center px-5 mb-3.5 mt-1">
-              <View className="text-textCustom-primary text-lg font-bold tracking-tight">
+              <Text className="text-textCustom-primary text-lg font-bold tracking-tight">
                 Browse Folders
-              </View>
-              <View className="text-textCustom-tertiary text-xs font-medium">
+              </Text>
+              <Text className="text-textCustom-tertiary text-xs font-medium">
                 {categoryData.length} categories
-              </View>
+              </Text>
             </View>
 
             {categoryData.map((cat, i) => (
@@ -386,19 +386,19 @@ export default function DiscoverScreen() {
             <View className="w-20 h-20 rounded-[20px] bg-background-secondary items-center justify-center mb-5 border border-white/[0.07]">
               <Ionicons name="compass" size={40} color="#333" />
             </View>
-            <View className="text-textCustom-primary text-lg font-bold mb-2">
+            <Text className="text-textCustom-primary text-lg font-bold mb-2">
               Nothing to discover yet
-            </View>
-            <View className="text-textCustom-tertiary text-[13px] text-center leading-[18px] mb-6">
+            </Text>
+            <Text className="text-textCustom-tertiary text-[13px] text-center leading-[18px] mb-6">
               Import your TikTok or Instagram saves to see them here.
-            </View>
+            </Text>
             <AnimatedPressable
               onPress={() => useStore.getState().setModal('add')}
             >
               <View className="bg-accent-base px-6 py-3 rounded-xl">
-                <View className="text-textCustom-primary text-sm font-bold">
+                <Text className="text-textCustom-primary text-sm font-bold">
                   Import Saves
-                </View>
+                </Text>
               </View>
             </AnimatedPressable>
           </AnimatedView>

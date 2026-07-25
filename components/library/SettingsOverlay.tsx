@@ -45,11 +45,11 @@ export default function SettingsOverlay({
             {/* Account profile card */}
             <View style={styles.profileCard}>
               <View style={styles.profileAvatar}>
-                <Text style={{ color: '#0A0A0A', fontFamily: 'Syne_700Bold', fontSize: 18 }}>IQ</Text>
+                <Text style={{ color: '#0A0A0A', fontFamily: 'PlusJakartaSans_700Bold', fontSize: 18 }}>IQ</Text>
               </View>
               <View>
-                <Text style={{ color: '#FFFFFF', fontFamily: 'Syne_700Bold', fontSize: 16 }}>Ibrahim Qoyum</Text>
-                <Text style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'DMSans_400Regular', fontSize: 12, marginTop: 2 }}>ibrahim@stash.app</Text>
+                <Text style={{ color: '#FFFFFF', fontFamily: 'PlusJakartaSans_700Bold', fontSize: 16 }}>Ibrahim Qoyum</Text>
+                <Text style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'Inter_400Regular', fontSize: 12, marginTop: 2 }}>ibrahim@stash.app</Text>
               </View>
             </View>
 
@@ -90,7 +90,7 @@ export default function SettingsOverlay({
                   <Ionicons name="sparkles-outline" size={16} color={ACCENT_BRIGHT} style={{ marginRight: 12 }} />
                   <Text style={styles.settingsRowText}>Confidence threshold (0.70)</Text>
                 </View>
-                <Text style={{ color: ACCENT_BRIGHT, fontFamily: 'DMSans_600SemiBold', fontSize: 12 }}>Active</Text>
+                <Text style={{ color: ACCENT_BRIGHT, fontFamily: 'Inter_600SemiBold', fontSize: 12 }}>Active</Text>
               </View>
             </View>
 
@@ -103,7 +103,7 @@ export default function SettingsOverlay({
               style={({ pressed }) => [styles.logoutBtn, pressed && { opacity: 0.8 }]}
             >
               <Ionicons name="log-out" size={16} color="#E05252" style={{ marginRight: 8 }} />
-              <Text style={{ color: '#E05252', fontFamily: 'DMSans_700Bold', fontSize: 13 }}>Logout from Stash</Text>
+              <Text style={{ color: '#E05252', fontFamily: 'Inter_700Bold', fontSize: 13 }}>Logout from Stash</Text>
             </Pressable>
           </ScrollView>
         </SafeAreaView>
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   },
   settingsTitle: {
     color: '#ffffff',
-    fontFamily: 'Syne_700Bold',
+    fontFamily: 'PlusJakartaSans_700Bold',
     fontSize: 18,
   },
   settingsCloseBtn: {
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
   },
   settingsGroupHeader: {
     color: 'rgba(255,255,255,0.3)',
-    fontFamily: 'DMSans_700Bold',
+    fontFamily: 'Inter_700Bold',
     fontSize: 10,
     letterSpacing: 1,
     marginBottom: 10,
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
   },
   settingsRowText: {
     color: 'rgba(255,255,255,0.7)',
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Inter_400Regular',
     fontSize: 13,
   },
   logoutBtn: {

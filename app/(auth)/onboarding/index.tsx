@@ -137,7 +137,7 @@ export default function OnboardingScreen() {
         >
           <Pressable onPress={handleSkip}>
             <Text
-              style={{ color: '#888888', fontSize: 15, fontFamily: 'DMSans_500Medium' }}
+              style={{ color: '#888888', fontSize: 15, fontFamily: 'Inter_500Medium' }}
             >
               Skip
             </Text>
@@ -195,7 +195,7 @@ export default function OnboardingScreen() {
                       fontSize: 32,
                       color: '#FFFFFF',
                       textAlign: 'center',
-                      fontFamily: 'Syne_800ExtraBold',
+                      fontFamily: 'PlusJakartaSans_800ExtraBold',
                       lineHeight: 40,
                     }}
                   >
@@ -207,7 +207,7 @@ export default function OnboardingScreen() {
                       fontSize: 16,
                       color: '#888888',
                       textAlign: 'center',
-                      fontFamily: 'DMSans_400Regular',
+                      fontFamily: 'Inter_400Regular',
                       lineHeight: 24,
                       marginTop: 16,
                       maxWidth: 300,

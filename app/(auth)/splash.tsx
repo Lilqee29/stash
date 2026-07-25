@@ -50,7 +50,7 @@ export default function SplashScreen() {
             style={{
               color: '#FFFFFF',
               fontSize: 32,
-              fontFamily: 'Syne_800ExtraBold',
+              fontFamily: 'PlusJakartaSans_800ExtraBold',
               letterSpacing: -0.02,
             }}
           >
@@ -60,7 +60,7 @@ export default function SplashScreen() {
             style={{
               color: '#888888',
               fontSize: 14,
-              fontFamily: 'DMSans_400Regular',
+              fontFamily: 'Inter_400Regular',
               marginTop: 8,
               textAlign: 'center',
             }}

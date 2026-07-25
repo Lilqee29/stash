@@ -254,12 +254,14 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 24,
     fontWeight: '800',
+    fontFamily: 'PlusJakartaSans_800ExtraBold',
     letterSpacing: -0.5,
   },
   subtitle: {
     color: '#888',
     fontSize: 14,
     marginTop: 4,
+    fontFamily: 'Inter_400Regular',
   },
   closeBtn: {
     width: 32,
@@ -298,12 +300,14 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: '700',
+    fontFamily: 'PlusJakartaSans_700Bold',
     marginBottom: 4,
   },
   actionSub: {
     color: '#666',
     fontSize: 12,
     lineHeight: 16,
+    fontFamily: 'Inter_400Regular',
   },
   proBadge: {
     position: 'absolute',

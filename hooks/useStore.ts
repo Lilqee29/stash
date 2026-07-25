@@ -3,6 +3,33 @@ import { persist, createJSONStorage } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { supabase } from '../lib/supabase';
 
+// ── Enrichment Types ──────────────────────────────────────────
+export type EnrichmentType = 'video' | 'recipe' | 'motion_design' | 'comparison' | 'generic';
+
+export interface EnrichmentData {
+  type: EnrichmentType;
+  summary: string;
+  key_points: string[];
+  suggested_related: string[];
+  // Video / Motion Design
+  creator_username?: string;
+  creator_profile_url?: string;
+  // Recipe
+  recipe_name?: string;
+  ingredients?: { name: string; amount: string; image_url?: string }[];
+  steps?: string[];
+  prep_time?: string;
+  cook_time?: string;
+  related_recipes?: string[];
+  substitutes?: { ingredient: string; substitute: string; source_url?: string }[];
+  pairs_well_with?: string[];
+  // Motion Design
+  brands_or_subjects_featured?: string[];
+  // Comparison
+  items_compared?: string[];
+  verdict?: string;
+}
+
 export interface SaveItem {
   id: string;
   title: string;
@@ -10,7 +37,7 @@ export interface SaveItem {
   savedAt: string;
   platform: 'tiktok' | 'instagram' | 'behance' | 'dribbble' | 'other';
   // Dynamic Content Fields
-  contentType?: 'movie' | 'list' | 'default';
+  contentType?: 'movie' | 'list' | 'video' | 'reel' | 'post' | 'default';
   
   // Movie Specific
   genre?: string;
@@ -34,6 +61,8 @@ export interface SaveItem {
   thumbnailUrl?: string;
   folderId: string | null;
   createdAt: string;
+  // Gemini enrichment
+  enrichment?: EnrichmentData;
 }
 
 export interface FolderItem {
@@ -92,6 +121,7 @@ export interface OnboardingState {
   setSaves: (saves: SaveItem[]) => void;
   setFolders: (folders: FolderItem[]) => void;
   addSave: (save: Omit<SaveItem, 'id' | 'createdAt'>) => void;
+  triggerEnrichment: (saveId: string, url: string) => Promise<void>;
   deleteSave: (id: string) => void;
   addFolder: (name: string, platforms?: string[]) => string;
   deleteFolder: (id: string) => void;
@@ -417,6 +447,7 @@ export const useStore = create<OnboardingState>()(
               cast_list: newSave.cast,
               available_on: newSave.availableOn,
               mentioned_in: newSave.mentionedIn,
+              enrichment: newSave.enrichment || null,
               user_id: userId,
               created_at: newSave.createdAt,
             });
@@ -433,6 +464,29 @@ export const useStore = create<OnboardingState>()(
           }
         } catch (err) {
           console.error('Error adding save to Supabase:', err);
+        }
+      },
+
+      triggerEnrichment: async (saveId: string, url: string) => {
+        // Deduplication: skip if enrichment already exists or already in progress
+        const existing = get().saves.find((s) => s.id === saveId);
+        if (existing?.enrichment) return;
+
+        try {
+          const { data, error } = await supabase.functions.invoke('enrich-with-gemini', {
+            body: { save_id: saveId, url },
+          });
+
+          if (!error && data?.enrichment) {
+            // Update local state with enrichment
+            set((state) => ({
+              saves: state.saves.map((s) =>
+                s.id === saveId ? { ...s, enrichment: data.enrichment } : s
+              ),
+            }));
+          }
+        } catch (err) {
+          console.error('Enrichment failed (non-critical):', err);
         }
       },
 
@@ -670,6 +724,7 @@ export const useStore = create<OnboardingState>()(
             cast: s.cast_list || undefined,
             availableOn: s.available_on || undefined,
             mentionedIn: s.mentioned_in || undefined,
+            enrichment: s.enrichment || undefined,
           }));
 
           set({
@@ -686,6 +741,8 @@ export const useStore = create<OnboardingState>()(
       storage: createJSONStorage(() => AsyncStorage),
       partialize: (state) => ({
         hasCompletedOnboarding: state.hasCompletedOnboarding,
+        saves: state.saves,
+        folders: state.folders,
       }),
     }
   )

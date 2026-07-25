@@ -4,6 +4,6 @@
     "skipLibCheck": true,
     "jsx": "react-native"
   },
-  "extends": "expo/tsconfig.base"
-  
+  "extends": "expo/tsconfig.base",
+  "exclude": ["supabase/functions"]
 }

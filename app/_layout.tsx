@@ -8,15 +8,16 @@ import * as SplashScreen from 'expo-splash-screen';
 import { ShareIntentProvider, useShareIntent } from 'expo-share-intent';
 import { 
   useFonts,
-  Syne_700Bold,
-  Syne_800ExtraBold
-} from '@expo-google-fonts/syne';
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+} from '@expo-google-fonts/inter';
 import {
-  DMSans_400Regular,
-  DMSans_500Medium,
-  DMSans_600SemiBold,
-  DMSans_700Bold
-} from '@expo-google-fonts/dm-sans';
+  PlusJakartaSans_600SemiBold,
+  PlusJakartaSans_700Bold,
+  PlusJakartaSans_800ExtraBold,
+} from '@expo-google-fonts/plus-jakarta-sans';
 
 import '../global.css';
 import { supabase } from '../lib/supabase';
@@ -32,12 +33,13 @@ function InnerLayout() {
   const hasCompletedOnboarding = useStore((s) => s.hasCompletedOnboarding);
 
   const [fontsLoaded, fontError] = useFonts({
-    Syne_700Bold,
-    Syne_800ExtraBold,
-    DMSans_400Regular,
-    DMSans_500Medium,
-    DMSans_600SemiBold,
-    DMSans_700Bold,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    PlusJakartaSans_600SemiBold,
+    PlusJakartaSans_700Bold,
+    PlusJakartaSans_800ExtraBold,
   });
 
   useEffect(() => {

@@ -93,7 +93,7 @@ export function SegmentedControl({
               className={`text-xs font-dmsans tracking-wide ${
                 isActive ? 'text-textCustom-accent font-semibold' : 'text-textCustom-secondary font-medium'
               }`}
-              style={{ fontFamily: 'DMSans_500Medium' }}
+              style={{ fontFamily: 'Inter_500Medium' }}
             >
               {option}
             </Text>

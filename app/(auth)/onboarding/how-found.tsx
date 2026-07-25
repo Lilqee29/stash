@@ -125,7 +125,7 @@ function OptionItem({
             style={{
               color: '#FFFFFF',
               fontSize: 16,
-              fontFamily: isSelected ? 'DMSans_500Medium' : 'DMSans_400Regular',
+              fontFamily: isSelected ? 'Inter_500Medium' : 'Inter_400Regular',
             }}
           >
             {opt.label}
@@ -230,7 +230,7 @@ export default function HowFoundScreen() {
               style={{
                 color: '#888888',
                 fontSize: 13,
-                fontFamily: 'DMSans_500Medium',
+                fontFamily: 'Inter_500Medium',
               }}
             >
               Skip
@@ -263,7 +263,7 @@ export default function HowFoundScreen() {
               style={{
                 color: '#8EC934',
                 fontSize: 11,
-                fontFamily: 'DMSans_500Medium',
+                fontFamily: 'Inter_500Medium',
                 letterSpacing: 1.5,
                 textTransform: 'uppercase',
                 marginBottom: 10,
@@ -277,7 +277,7 @@ export default function HowFoundScreen() {
                 color: '#FFFFFF',
                 fontSize: 28,
                 lineHeight: 34,
-                fontFamily: 'Syne_700Bold',
+                fontFamily: 'PlusJakartaSans_700Bold',
                 letterSpacing: -0.5,
                 marginBottom: 12,
               }}
@@ -290,7 +290,7 @@ export default function HowFoundScreen() {
                 color: '#888888',
                 fontSize: 14,
                 lineHeight: 22,
-                fontFamily: 'DMSans_400Regular',
+                fontFamily: 'Inter_400Regular',
               }}
             >
               Helps us refine Stash as the ultimate bookmark engine for creators.
@@ -326,7 +326,7 @@ export default function HowFoundScreen() {
                 style={{
                   color: '#888888',
                   fontSize: 12,
-                  fontFamily: 'DMSans_500Medium',
+                  fontFamily: 'Inter_500Medium',
                   textTransform: 'uppercase',
                   letterSpacing: 1,
                   marginBottom: 8,
@@ -351,7 +351,7 @@ export default function HowFoundScreen() {
                   paddingHorizontal: 16,
                   paddingVertical: 14,
                   fontSize: 15,
-                  fontFamily: 'DMSans_400Regular',
+                  fontFamily: 'Inter_400Regular',
                   color: '#FFFFFF',
                   shadowColor: isFocused ? '#639922' : 'transparent',
                   shadowOffset: { width: 0, height: 4 },

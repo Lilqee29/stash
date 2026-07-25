@@ -6,15 +6,15 @@ Personal bookmark brain for TikTok/Instagram saves. iOS app. Expo + React Native
 
 ## Stack (Exact Versions)
 
-- Expo SDK 54 (`~54.0.33`)
-- React Native 0.81.5
-- TypeScript 5.9.2 (strict mode)
-- Expo Router v6 (`~6.0.23`)
+- Expo SDK 57 (`~57.0.0`)
+- React Native 0.86.0
+- TypeScript 6.0.3 (strict mode)
+- Expo Router ~57.0.8
 - NativeWind v4 (`^4.2.4`) + Tailwind 3.4
 - Zustand 5 (`^5.0.13`)
 - Supabase JS (`^2.105.4`)
-- Moti (`^0.30.0`) + Reanimated (`~4.1.1`)
-- React 19.1.0
+- Moti + Reanimated (`~4.5.0`)
+- React 19.2.3
 
 ---
 
@@ -158,8 +158,8 @@ export function Button({ title, onPress, variant = 'primary' }: ButtonProps) {
 - Borders: `#222222` (subtle), `#2E2E2E` (medium)
 
 ### Typography
-- Headings: Syne (Bold 700, ExtraBold 800)
-- Body: DM Sans (Regular 400, Medium 500)
+- Headings: Plus Jakarta Sans (SemiBold 600, Bold 700, ExtraBold 800)
+- Body: Inter (Regular 400, Medium 500, SemiBold 600, Bold 700)
 - Scale: xs(10), sm(12), base(14), md(16), lg(20), xl(24), 2xl(32)
 
 ### Spacing

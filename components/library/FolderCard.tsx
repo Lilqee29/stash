@@ -68,14 +68,14 @@ export default function FolderCard({
         <View className="mt-3 gap-0.5">
           <Text 
             className="text-white text-[15px] font-syne tracking-tight"
-            style={{ fontFamily: 'Syne_700Bold' }}
+            style={{ fontFamily: 'PlusJakartaSans_700Bold' }}
             numberOfLines={1}
           >
             {folder.name}
           </Text>
           <Text 
             className="text-textCustom-secondary text-[11px] font-dmsans"
-            style={{ fontFamily: 'DMSans_400Regular' }}
+            style={{ fontFamily: 'Inter_400Regular' }}
           >
             {folder.count} items
           </Text>
@@ -94,7 +94,7 @@ export default function FolderCard({
           </View>
           <Text 
             className="text-[9px] text-textCustom-tertiary font-dmsans uppercase tracking-wider"
-            style={{ fontFamily: 'DMSans_500Medium' }}
+            style={{ fontFamily: 'Inter_500Medium' }}
           >
             Activity
           </Text>
@@ -129,14 +129,14 @@ export default function FolderCard({
         <View className="flex-1">
           <Text 
             className="text-white text-[15px] font-syne tracking-tight"
-            style={{ fontFamily: 'Syne_700Bold' }}
+            style={{ fontFamily: 'PlusJakartaSans_700Bold' }}
             numberOfLines={1}
           >
             {folder.name}
           </Text>
           <Text 
             className="text-textCustom-secondary text-xs font-dmsans mt-0.5"
-            style={{ fontFamily: 'DMSans_400Regular' }}
+            style={{ fontFamily: 'Inter_400Regular' }}
           >
             {folder.count} saves
           </Text>

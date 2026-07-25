@@ -95,9 +95,9 @@ function SavePosterCard({
             {item.title}
           </Text>
         </View>
-        <View className="text-textCustom-tertiary text-[11px] mt-1.5 ml-1">
+        <Text className="text-textCustom-tertiary text-[11px] mt-1.5 ml-1">
           {timeAgo(item.savedAt)}
-        </View>
+        </Text>
       </AnimatedPressable>
     </AnimatedView>
   );
@@ -147,10 +147,10 @@ export default function FolderDetailScreen() {
     return (
       <SafeAreaView className="flex-1 bg-background-primary items-center justify-center gap-3 pb-20">
         <Ionicons name="alert-circle-outline" size={56} color="#FF695E" />
-        <View className="text-textCustom-primary text-lg font-bold">{loadError}</View>
+        <Text className="text-textCustom-primary text-lg font-bold">{loadError}</Text>
         <AnimatedPressable onPress={() => router.back()}>
           <View className="bg-accent-base py-3 px-6 rounded-xl mt-2">
-            <View className="text-background-primary text-sm font-bold">Go Back</View>
+            <Text className="text-background-primary text-sm font-bold">Go Back</Text>
           </View>
         </AnimatedPressable>
       </SafeAreaView>
@@ -161,10 +161,10 @@ export default function FolderDetailScreen() {
     return (
       <SafeAreaView className="flex-1 bg-background-primary items-center justify-center gap-3 pb-20">
         <Ionicons name="folder-open-outline" size={56} color="#2A2A2A" />
-        <View className="text-textCustom-primary text-lg font-bold">Folder not found</View>
+        <Text className="text-textCustom-primary text-lg font-bold">Folder not found</Text>
         <AnimatedPressable onPress={() => router.back()}>
           <View className="bg-accent-base py-3 px-6 rounded-xl mt-2">
-            <View className="text-background-primary text-sm font-bold">Go Back</View>
+            <Text className="text-background-primary text-sm font-bold">Go Back</Text>
           </View>
         </AnimatedPressable>
       </SafeAreaView>
@@ -252,25 +252,25 @@ export default function FolderDetailScreen() {
             </AnimatedPressable>
           </View>
         ) : (
-          <View className="text-textCustom-primary text-[28px] font-extrabold tracking-tight">
+          <Text className="text-textCustom-primary text-[28px] font-extrabold tracking-tight">
             {folder.name}
-          </View>
+          </Text>
         )}
-        <View className="text-textCustom-tertiary text-[13px] mt-1 font-medium">
+        <Text className="text-textCustom-tertiary text-[13px] mt-1 font-medium">
           {folderSaves.length} {folderSaves.length === 1 ? 'save' : 'saves'}
-        </View>
+        </Text>
       </View>
 
       {/* ── CONTENT ─────────────────────────────────────────── */}
       {folderSaves.length === 0 ? (
         <View className="flex-1 justify-center items-center gap-2 pb-[100px]">
           <Ionicons name="folder-open-outline" size={56} color="#222" />
-          <View className="text-textCustom-primary text-base font-bold mt-2">
+          <Text className="text-textCustom-primary text-base font-bold mt-2">
             Empty Folder
-          </View>
-          <View className="text-textCustom-tertiary text-[13px] text-center px-10">
+          </Text>
+          <Text className="text-textCustom-tertiary text-[13px] text-center px-10">
             No saves have been classified here yet.
-          </View>
+          </Text>
         </View>
       ) : viewMode === 'grid' ? (
         <FlatList
@@ -319,9 +319,9 @@ export default function FolderDetailScreen() {
                         <Text className="text-textCustom-primary text-sm font-bold leading-[19px]" numberOfLines={2}>
                           {item.title}
                         </Text>
-                        <View className="text-textCustom-tertiary text-[11px]">
+                        <Text className="text-textCustom-tertiary text-[11px]">
                           {timeAgo(item.savedAt)}
-                        </View>
+                        </Text>
                       </View>
                       <Ionicons name="chevron-forward" size={16} color="#333" />
                     </View>

@@ -86,9 +86,9 @@ export default function LibraryScreen() {
     return (
       <SafeAreaView className="flex-1 bg-background-primary">
         <View className="px-5 pt-2 pb-5">
-          <View className="text-textCustom-primary text-[32px] font-extrabold tracking-tight">
+          <Text className="text-textCustom-primary text-[32px] font-extrabold tracking-tight">
             Library
-          </View>
+          </Text>
         </View>
         <View className="px-5 gap-3">
           {[1, 2, 3].map((i) => (
@@ -108,9 +108,9 @@ export default function LibraryScreen() {
       >
         {/* ── HEADER ─────────────────────────────────────────── */}
         <AnimatedView entry="fadeIn" delay={0} className="flex-row justify-between items-center px-5 pb-5">
-          <View className="text-textCustom-primary text-[32px] font-extrabold tracking-tight">
+          <Text className="text-textCustom-primary text-[32px] font-extrabold tracking-tight">
             Library
-          </View>
+          </Text>
           <AnimatedPressable onPress={() => setIsCreateOpen(true)}>
             <View className="w-[38px] h-[38px] rounded-xl items-center justify-center bg-accent-surface border border-accent-base/20">
               <Ionicons name="add" size={20} color="#8EC934" />
@@ -141,14 +141,14 @@ export default function LibraryScreen() {
         {/* ── SEARCH RESULTS ─────────────────────────────────── */}
         {isSearching ? (
           <View className="mb-7">
-            <View className="text-textCustom-tertiary text-[13px] font-medium px-5 mb-2.5">
+            <Text className="text-textCustom-tertiary text-[13px] font-medium px-5 mb-2.5">
               {filteredSaves.length} results
-            </View>
+            </Text>
             {filteredSaves.length === 0 ? (
               <View className="items-center py-10">
-                <View className="text-textCustom-tertiary text-[13px]">
+                <Text className="text-textCustom-tertiary text-[13px]">
                   No saves found
-                </View>
+                </Text>
               </View>
             ) : (
               filteredSaves.map((item, i) => (
@@ -159,9 +159,9 @@ export default function LibraryScreen() {
                         <Text className="text-textCustom-primary text-sm font-semibold" numberOfLines={1}>
                           {item.title}
                         </Text>
-                        <View className="text-textCustom-tertiary text-[11px] mt-1">
+                        <Text className="text-textCustom-tertiary text-[11px] mt-1">
                           {item.platform} · {timeAgo(item.savedAt)}
-                        </View>
+                        </Text>
                       </View>
                       <Ionicons name="chevron-forward" size={14} color="#333" />
                     </View>
@@ -176,13 +176,13 @@ export default function LibraryScreen() {
             {recentSaves.length > 0 && (
               <View className="mb-7">
                 <View className="flex-row justify-between items-center px-5 mb-3.5">
-                  <View className="text-textCustom-primary text-[17px] font-bold tracking-tight">
+                  <Text className="text-textCustom-primary text-[17px] font-bold tracking-tight">
                     Recently saved
-                  </View>
+                  </Text>
                   <AnimatedPressable onPress={() => router.push('/recently-imported')}>
-                    <View className="text-textCustom-accent text-[13px] font-semibold">
+                    <Text className="text-textCustom-accent text-[13px] font-semibold">
                       See all
-                    </View>
+                    </Text>
                   </AnimatedPressable>
                 </View>
 
@@ -216,9 +216,9 @@ export default function LibraryScreen() {
                           <Text className="text-textCustom-primary text-xs font-semibold" numberOfLines={1}>
                             {item.title}
                           </Text>
-                          <View className="text-textCustom-tertiary text-[10px] mt-0.5">
+                          <Text className="text-textCustom-tertiary text-[10px] mt-0.5">
                             {timeAgo(item.savedAt)}
-                          </View>
+                          </Text>
                         </View>
                       </AnimatedPressable>
                     </AnimatedView>
@@ -230,12 +230,12 @@ export default function LibraryScreen() {
             {/* ── FOLDERS ─────────────────────────────────────── */}
             <View className="mb-7">
               <View className="flex-row justify-between items-center px-5 mb-3.5">
-                <View className="text-textCustom-primary text-[17px] font-bold tracking-tight">
+                <Text className="text-textCustom-primary text-[17px] font-bold tracking-tight">
                   Folders
-                </View>
-                <View className="text-textCustom-tertiary text-[13px] font-medium">
+                </Text>
+                <Text className="text-textCustom-tertiary text-[13px] font-medium">
                   {folders.length}
-                </View>
+                </Text>
               </View>
 
               {folders.length === 0 ? (
@@ -243,17 +243,17 @@ export default function LibraryScreen() {
                   <View className="w-14 h-14 rounded-[14px] bg-background-secondary items-center justify-center mb-3.5 border border-white/[0.07]">
                     <Ionicons name="folder-outline" size={28} color="#333" />
                   </View>
-                  <View className="text-textCustom-primary text-[15px] font-semibold mb-1">
+                  <Text className="text-textCustom-primary text-[15px] font-semibold mb-1">
                     No folders yet
-                  </View>
-                  <View className="text-textCustom-tertiary text-xs text-center mb-4">
+                  </Text>
+                  <Text className="text-textCustom-tertiary text-xs text-center mb-4">
                     Create a folder to organize your saves
-                  </View>
+                  </Text>
                   <AnimatedPressable onPress={() => setIsCreateOpen(true)}>
                     <View className="bg-accent-base px-5 py-2.5 rounded-[10px]">
-                      <View className="text-textCustom-primary text-[13px] font-bold">
+                      <Text className="text-textCustom-primary text-[13px] font-bold">
                         Create folder
-                      </View>
+                      </Text>
                     </View>
                   </AnimatedPressable>
                 </View>
@@ -266,12 +266,12 @@ export default function LibraryScreen() {
                           <Ionicons name="folder" size={18} color="#8EC934" />
                         </View>
                         <View className="flex-1">
-                          <View className="text-textCustom-primary text-sm font-semibold">
+                          <Text className="text-textCustom-primary text-sm font-semibold">
                             {folder.name}
-                          </View>
-                          <View className="text-textCustom-tertiary text-[11px] mt-0.5">
+                          </Text>
+                          <Text className="text-textCustom-tertiary text-[11px] mt-0.5">
                             {folder.count} saves
-                          </View>
+                          </Text>
                         </View>
                         <Ionicons name="chevron-forward" size={14} color="#333" />
                       </View>
@@ -302,9 +302,9 @@ export default function LibraryScreen() {
               transition={{ type: 'spring', damping: 18, stiffness: 200 }}
               className="w-full bg-[#161616] rounded-[20px] p-6 border border-borderCustom-subtle"
             >
-              <View className="text-textCustom-primary text-lg font-bold text-center mb-5">
+              <Text className="text-textCustom-primary text-lg font-bold text-center mb-5">
                 New folder
-              </View>
+              </Text>
               <TextInput
                 className="bg-background-secondary rounded-xl border border-white/[0.07] px-3.5 h-12 text-textCustom-primary text-sm mb-5"
                 placeholder="Folder name"
@@ -318,9 +318,9 @@ export default function LibraryScreen() {
               <View className="flex-row gap-2.5">
                 <AnimatedPressable onPress={() => setIsCreateOpen(false)}>
                   <View className="flex-1 h-11 rounded-xl items-center justify-center bg-[#1E1E1E]">
-                    <View className="text-textCustom-secondary text-sm font-semibold">
+                    <Text className="text-textCustom-secondary text-sm font-semibold">
                       Cancel
-                    </View>
+                    </Text>
                   </View>
                 </AnimatedPressable>
                 <AnimatedPressable onPress={handleCreateFolder}>
@@ -329,9 +329,9 @@ export default function LibraryScreen() {
                       !newFolderName.trim() ? 'bg-accent-base/40' : 'bg-accent-base'
                     }`}
                   >
-                    <View className="text-textCustom-primary text-sm font-bold">
+                    <Text className="text-textCustom-primary text-sm font-bold">
                       Create
-                    </View>
+                    </Text>
                   </View>
                 </AnimatedPressable>
               </View>

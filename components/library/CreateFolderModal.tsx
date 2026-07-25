@@ -217,13 +217,13 @@ const styles = StyleSheet.create({
   },
   modalTitle: {
     color: '#FFFFFF',
-    fontFamily: 'Syne_700Bold',
+    fontFamily: 'PlusJakartaSans_700Bold',
     fontSize: 20,
     letterSpacing: -0.5,
   },
   modalSubtitle: {
     color: 'rgba(255,255,255,0.3)',
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Inter_400Regular',
     fontSize: 12,
     marginTop: 2,
   },
@@ -237,7 +237,7 @@ const styles = StyleSheet.create({
   },
   label: {
     color: 'rgba(255,255,255,0.4)',
-    fontFamily: 'DMSans_700Bold',
+    fontFamily: 'Inter_700Bold',
     fontSize: 10,
     letterSpacing: 0.8,
     textTransform: 'uppercase',
@@ -263,12 +263,12 @@ const styles = StyleSheet.create({
   },
   previewName: {
     color: '#FFFFFF',
-    fontFamily: 'Syne_700Bold',
+    fontFamily: 'PlusJakartaSans_700Bold',
     fontSize: 12,
   },
   previewCount: {
     color: 'rgba(255,255,255,0.3)',
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Inter_400Regular',
     fontSize: 9,
   },
   previewMeter: {
@@ -288,7 +288,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     paddingHorizontal: 16,
     paddingVertical: 14,
-    fontFamily: 'DMSans_500Medium',
+    fontFamily: 'Inter_500Medium',
     fontSize: 14,
     marginBottom: 20,
   },
@@ -333,7 +333,7 @@ const styles = StyleSheet.create({
   },
   cancelBtnText: {
     color: 'rgba(255,255,255,0.5)',
-    fontFamily: 'DMSans_700Bold',
+    fontFamily: 'Inter_700Bold',
     fontSize: 14,
   },
   createBtn: {
@@ -345,7 +345,7 @@ const styles = StyleSheet.create({
   },
   createBtnText: {
     color: '#FFFFFF',
-    fontFamily: 'DMSans_700Bold',
+    fontFamily: 'Inter_700Bold',
     fontSize: 14,
   },
 });

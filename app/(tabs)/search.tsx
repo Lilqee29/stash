@@ -90,20 +90,20 @@ export default function SearchScreen() {
             </Text>
             <View className="flex-row items-center mt-2 gap-2">
               <View className="bg-background-tertiary border border-borderCustom-medium px-1.5 py-0.5 rounded-md">
-                <View className="text-textCustom-secondary text-[8px] font-bold uppercase">
+                <Text className="text-textCustom-secondary text-[8px] font-bold uppercase">
                   {item.platform}
-                </View>
+                </Text>
               </View>
               {item.genre && (
                 <View className="bg-accent-surface px-1.5 py-0.5 rounded-md">
-                  <View className="text-textCustom-accent text-[10px] font-semibold">
+                  <Text className="text-textCustom-accent text-[10px] font-semibold">
                     {item.genre}
-                  </View>
+                  </Text>
                 </View>
               )}
-              <View className="text-textCustom-tertiary text-[11px] font-medium">
+              <Text className="text-textCustom-tertiary text-[11px] font-medium">
                 {getFolderName(item.folderId)}
-              </View>
+              </Text>
             </View>
           </View>
           <Ionicons name="chevron-forward" size={14} color="#333" />
@@ -116,12 +116,12 @@ export default function SearchScreen() {
     <SafeAreaView className="flex-1 bg-background-primary">
       {/* Header */}
       <AnimatedView entry="fadeIn" delay={0} className="px-6 mt-[18px] mb-4">
-        <View className="text-textCustom-primary text-[28px] font-extrabold tracking-tight">
+        <Text className="text-textCustom-primary text-[28px] font-extrabold tracking-tight">
           Search
-        </View>
-        <View className="text-textCustom-secondary text-[13px] mt-1">
+        </Text>
+        <Text className="text-textCustom-secondary text-[13px] mt-1">
           Find any saved reference instantly
-        </View>
+        </Text>
       </AnimatedView>
 
       {/* Search Input */}
@@ -159,13 +159,13 @@ export default function SearchScreen() {
                     : 'bg-background-secondary border-borderCustom-subtle'
                 }`}
               >
-                <View
+                <Text
                   className={`text-[12px] font-semibold font-dmsans ${
                     activeFilter === f.value ? 'text-textCustom-accent' : 'text-textCustom-secondary'
                   }`}
                 >
                   {f.label}
-                </View>
+                </Text>
               </View>
             </AnimatedPressable>
           </AnimatedView>
@@ -175,18 +175,18 @@ export default function SearchScreen() {
       {/* Content */}
       {query.trim() === '' && activeFilter === 'all' ? (
         <View className="flex-1">
-          <View className="text-textCustom-tertiary text-[11px] font-bold tracking-wider px-6 mb-2.5">
+          <Text className="text-textCustom-tertiary text-[11px] font-bold tracking-wider px-6 mb-2.5">
             RECENT SAVES
-          </View>
+          </Text>
           {recentSaves.length === 0 ? (
             <View className="flex-1 justify-center items-center px-10 pb-[100px]">
               <Ionicons name="bookmark-outline" size={56} color="#1A1A1A" />
-              <View className="text-textCustom-primary text-base font-bold mt-4 text-center">
+              <Text className="text-textCustom-primary text-base font-bold mt-4 text-center">
                 No saves yet
-              </View>
-              <View className="text-textCustom-tertiary text-[13px] mt-1.5 text-center leading-[18px]">
+              </Text>
+              <Text className="text-textCustom-tertiary text-[13px] mt-1.5 text-center leading-[18px]">
                 Paste a TikTok or Instagram link to start building your library
-              </View>
+              </Text>
             </View>
           ) : (
             <ScrollView
@@ -199,18 +199,18 @@ export default function SearchScreen() {
       ) : filteredSaves.length === 0 ? (
         <View className="flex-1 justify-center items-center px-10 pb-[100px]">
           <Ionicons name="search-outline" size={56} color="#1A1A1A" />
-          <View className="text-textCustom-primary text-base font-bold mt-4 text-center">
+          <Text className="text-textCustom-primary text-base font-bold mt-4 text-center">
             No results found
-          </View>
-          <View className="text-textCustom-tertiary text-[13px] mt-1.5 text-center leading-[18px]">
+          </Text>
+          <Text className="text-textCustom-tertiary text-[13px] mt-1.5 text-center leading-[18px]">
             Try different keywords, or clear filters to browse all saves
-          </View>
+          </Text>
         </View>
       ) : (
         <View className="flex-1">
-          <View className="text-textCustom-tertiary text-[11px] font-bold tracking-wider px-6 mb-2.5">
+          <Text className="text-textCustom-tertiary text-[11px] font-bold tracking-wider px-6 mb-2.5">
             {filteredSaves.length} RESULT{filteredSaves.length !== 1 ? 'S' : ''}
-          </View>
+          </Text>
           <ScrollView
             contentContainerStyle={{ paddingHorizontal: 24, paddingBottom: 140 }}
           >

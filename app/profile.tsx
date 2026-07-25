@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 18,
     fontWeight: '700',
-    fontFamily: 'Syne_700Bold',
+    fontFamily: 'PlusJakartaSans_700Bold',
   },
   editBtn: {
     width: 42,
@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
     color: '#639922',
     fontSize: 32,
     fontWeight: '800',
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'PlusJakartaSans_800ExtraBold',
   },
   onlineBadge: {
     position: 'absolute',
@@ -237,13 +237,13 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 22,
     fontWeight: '800',
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'PlusJakartaSans_800ExtraBold',
     marginBottom: 4,
   },
   handle: {
     color: '#639922',
     fontSize: 14,
-    fontFamily: 'DMSans_500Medium',
+    fontFamily: 'Inter_500Medium',
     marginBottom: 12,
   },
   bio: {
@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 20,
     textAlign: 'center',
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Inter_400Regular',
     marginBottom: 20,
     paddingHorizontal: 8,
   },
@@ -271,13 +271,13 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 18,
     fontWeight: '800',
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'PlusJakartaSans_800ExtraBold',
     marginBottom: 4,
   },
   statLabel: {
     color: '#888888',
     fontSize: 12,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Inter_400Regular',
   },
   statDivider: {
     width: 1,
@@ -294,7 +294,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: '700',
-    fontFamily: 'Syne_700Bold',
+    fontFamily: 'PlusJakartaSans_700Bold',
     marginBottom: 12,
   },
   actionsGrid: {
@@ -321,7 +321,7 @@ const styles = StyleSheet.create({
   actionLabel: {
     color: '#FFFFFF',
     fontSize: 12,
-    fontFamily: 'DMSans_500Medium',
+    fontFamily: 'Inter_500Medium',
   },
 
   // Account Menu
@@ -346,7 +346,7 @@ const styles = StyleSheet.create({
   menuLabel: {
     color: '#FFFFFF',
     fontSize: 15,
-    fontFamily: 'DMSans_500Medium',
+    fontFamily: 'Inter_500Medium',
   },
   menuRight: {
     flexDirection: 'row',
@@ -356,7 +356,7 @@ const styles = StyleSheet.create({
   menuValue: {
     color: '#888888',
     fontSize: 13,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Inter_400Regular',
   },
   menuDivider: {
     height: 1,
@@ -379,6 +379,6 @@ const styles = StyleSheet.create({
   signOutText: {
     color: '#FF6B6B',
     fontSize: 15,
-    fontFamily: 'DMSans_500Medium',
+    fontFamily: 'Inter_500Medium',
   },
 });

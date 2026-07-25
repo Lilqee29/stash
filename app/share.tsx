@@ -14,6 +14,7 @@ import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useShareIntent } from 'expo-share-intent';
 import { useStore } from '../hooks/useStore';
+import { fetchVideoMetadata } from '../lib/fetchMetadata';
 
 function detectPlatform(url: string): 'tiktok' | 'instagram' | 'behance' | 'dribbble' | 'other' {
   if (url.includes('tiktok.com') || url.includes('vm.tiktok.com')) return 'tiktok';
@@ -46,7 +47,7 @@ function getPlatformIcon(platform: string): string {
 export default function ShareScreen() {
   const router = useRouter();
   const { hasShareIntent, shareIntent, resetShareIntent, error } = useShareIntent();
-  const { addSave, folders } = useStore();
+  const { addSave, folders, triggerEnrichment } = useStore();
 
   const [title, setTitle] = useState('');
   const [url, setUrl] = useState('');
@@ -55,6 +56,8 @@ export default function ShareScreen() {
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [showFolders, setShowFolders] = useState(false);
+  const [thumbnailUrl, setThumbnailUrl] = useState('');
+  const [creator, setCreator] = useState('');
 
   // Animations
   const slideAnim = React.useRef(new Animated.Value(80)).current;
@@ -78,6 +81,20 @@ export default function ShareScreen() {
       setUrl(sharedUrl);
       setTitle(sharedTitle.length > 80 ? sharedTitle.substring(0, 80) : sharedTitle);
       setPlatform(detectedPlatform);
+
+      // Fetch metadata in background
+      if (sharedUrl) {
+        fetchVideoMetadata(sharedUrl).then((meta) => {
+          if (meta.thumbnail) setThumbnailUrl(meta.thumbnail);
+          if (meta.creator) setCreator(meta.creator);
+          // Use fetched title if share intent title is generic
+          if (meta.title && !title.includes('Shared Link')) {
+            // keep share intent title — it's usually better
+          }
+        }).catch(() => {
+          // Silent fail — metadata is optional
+        });
+      }
     }
   }, [hasShareIntent, shareIntent]);
 
@@ -93,7 +110,16 @@ export default function ShareScreen() {
         savedAt: new Date().toISOString(),
         folderId: selectedFolder,
         contentType: 'default',
+        thumbnailUrl: thumbnailUrl || undefined,
+        creator: creator || undefined,
       });
+
+      // Fire-and-forget: trigger Gemini enrichment in background
+      const currentSaves = useStore.getState().saves;
+      const newSave = currentSaves.find((s) => s.url === url.trim());
+      if (newSave) {
+        triggerEnrichment(newSave.id, url.trim());
+      }
 
       // Success animation
       Animated.spring(checkAnim, {
@@ -177,8 +203,19 @@ export default function ShareScreen() {
             {/* URL Preview */}
             {url ? (
               <View style={styles.urlCard}>
-                <Ionicons name="link" size={14} color="#555" />
-                <Text style={styles.urlText} numberOfLines={1}>{url}</Text>
+                {thumbnailUrl ? (
+                  <View style={styles.urlThumb}>
+                    <Text style={{ fontSize: 12 }}>🎬</Text>
+                  </View>
+                ) : (
+                  <Ionicons name="link" size={14} color="#555" />
+                )}
+                <View style={{ flex: 1 }}>
+                  <Text style={styles.urlText} numberOfLines={1}>{url}</Text>
+                  {creator ? (
+                    <Text style={[styles.urlText, { marginTop: 2, color: '#8EC934' }]}>@{creator}</Text>
+                  ) : null}
+                </View>
               </View>
             ) : (
               <View style={styles.urlCard}>
@@ -373,10 +410,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#1A1A1A',
     borderRadius: 12,
     padding: 12,
-    gap: 8,
+    gap: 10,
     marginBottom: 20,
     borderWidth: 1,
     borderColor: '#252525',
+  },
+  urlThumb: {
+    width: 36,
+    height: 36,
+    borderRadius: 8,
+    backgroundColor: '#252525',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   urlText: {
     color: '#666',

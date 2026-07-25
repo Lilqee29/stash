@@ -95,7 +95,7 @@ export function AnimatedTabIndicator({
               className={`text-sm font-dmsans transition-colors ${
                 isActive ? 'text-accent-base font-semibold' : 'text-textCustom-secondary font-medium'
               }`}
-              style={{ fontFamily: isActive ? 'DMSans_500Medium' : 'DMSans_400Regular' }}
+              style={{ fontFamily: isActive ? 'Inter_500Medium' : 'Inter_400Regular' }}
             >
               {tab}
             </Text>

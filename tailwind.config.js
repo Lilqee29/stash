@@ -38,8 +38,10 @@ module.exports = {
         }
       },
       fontFamily: {
-        syne: ['Syne_700Bold', 'Syne_800ExtraBold', 'sans-serif'],
-        dmsans: ['DMSans_400Regular', 'DMSans_500Medium', 'sans-serif'],
+        syne: ['PlusJakartaSans_700Bold', 'PlusJakartaSans_800ExtraBold', 'sans-serif'],
+        dmsans: ['Inter_400Regular', 'Inter_500Medium', 'Inter_600SemiBold', 'sans-serif'],
+        inter: ['Inter_400Regular', 'Inter_500Medium', 'Inter_600SemiBold', 'Inter_700Bold', 'sans-serif'],
+        plusJakarta: ['PlusJakartaSans_600SemiBold', 'PlusJakartaSans_700Bold', 'PlusJakartaSans_800ExtraBold', 'sans-serif'],
       },
     },
   },

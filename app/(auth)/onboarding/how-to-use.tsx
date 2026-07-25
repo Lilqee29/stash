@@ -78,7 +78,7 @@ export default function HowToUseScreen() {
                     fontSize: 16,
                     fontWeight: '600',
                     color: '#FFFFFF',
-                    fontFamily: 'DMSans_500Medium',
+                    fontFamily: 'Inter_500Medium',
                     marginBottom: 4,
                   }}
                 >
@@ -88,7 +88,7 @@ export default function HowToUseScreen() {
                   style={{
                     fontSize: 14,
                     color: '#888888',
-                    fontFamily: 'DMSans_400Regular',
+                    fontFamily: 'Inter_400Regular',
                     lineHeight: 20,
                   }}
                 >

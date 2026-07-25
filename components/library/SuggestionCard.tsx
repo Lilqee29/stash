@@ -61,7 +61,7 @@ export default function SuggestionCard({ item, CARD_SIZE, onPress }: SuggestionC
             {/* Editorial character structure */}
             <Text 
               className="text-[#ffcc00] opacity-80 text-xl font-syne"
-              style={{ fontFamily: 'Syne_800ExtraBold' }}
+              style={{ fontFamily: 'PlusJakartaSans_800ExtraBold' }}
             >
               Aa
             </Text>
@@ -100,7 +100,7 @@ export default function SuggestionCard({ item, CARD_SIZE, onPress }: SuggestionC
           />
           <Text 
             className="color-white text-[8px] font-dmsans ml-1"
-            style={{ fontFamily: 'DMSans_500Medium' }}
+            style={{ fontFamily: 'Inter_500Medium' }}
           >
             {item.source}
           </Text>
@@ -112,7 +112,7 @@ export default function SuggestionCard({ item, CARD_SIZE, onPress }: SuggestionC
         <Text 
           numberOfLines={2} 
           className="text-white/90 text-xs font-dmsans leading-4"
-          style={{ fontFamily: 'DMSans_500Medium' }}
+          style={{ fontFamily: 'Inter_500Medium' }}
         >
           {item.title}
         </Text>
@@ -120,13 +120,13 @@ export default function SuggestionCard({ item, CARD_SIZE, onPress }: SuggestionC
         <View className="mt-1">
           <Text 
             className="text-[8px] font-dmsans uppercase tracking-wide"
-            style={{ fontFamily: 'DMSans_700Bold', color: item.color }}
+            style={{ fontFamily: 'Inter_700Bold', color: item.color }}
           >
             {item.folder}
           </Text>
           <Text 
             className="text-textCustom-secondary text-[8px] font-dmsans mt-0.5"
-            style={{ fontFamily: 'DMSans_400Regular' }}
+            style={{ fontFamily: 'Inter_400Regular' }}
           >
             {item.time}
           </Text>
