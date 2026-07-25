@@ -51,7 +51,7 @@ jobs:
           xcodebuild \
             -workspace stash.xcworkspace \
             -scheme stash \
-            -configuration Release \
+            -configuration Debug \
             -destination "generic/platform=iOS" \
             -derivedDataPath ../build \
             -archivePath ../build/stash.xcarchive \
