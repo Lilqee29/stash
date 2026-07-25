@@ -7,13 +7,18 @@ import {
   TextInput,
   KeyboardAvoidingView,
   Platform,
-  Dimensions,
-  Animated,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
+import Animated, {
+  FadeInDown,
+  FadeInRight,
+  useSharedValue,
+  useAnimatedStyle,
+  withSpring,
+} from 'react-native-reanimated';
 import { useStore } from '../../../hooks/useStore';
 import { OnboardingProgress } from '../../../components/OnboardingProgress';
 import { Button } from '../../../components/Button';
@@ -49,38 +54,117 @@ const OPTIONS = [
   },
 ];
 
+function OptionItem({
+  opt,
+  isSelected,
+  onSelect,
+}: {
+  opt: typeof OPTIONS[number];
+  isSelected: boolean;
+  onSelect: () => void;
+}) {
+  const scale = useSharedValue(1);
+
+  const animatedStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: scale.value }],
+  }));
+
+  const handlePressIn = () => {
+    scale.value = withSpring(0.97, { damping: 15, stiffness: 200 });
+  };
+
+  const handlePressOut = () => {
+    scale.value = withSpring(1, { damping: 15, stiffness: 200 });
+  };
+
+  return (
+    <Pressable
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
+      onPress={onSelect}
+    >
+      <Animated.View
+        style={[
+          animatedStyle,
+          {
+            width: '100%',
+            height: 68,
+            backgroundColor: '#111111',
+            borderWidth: 1.2,
+            borderColor: isSelected ? '#639922' : '#222222',
+            borderRadius: 18,
+            paddingHorizontal: 16,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            shadowColor: isSelected ? '#639922' : 'transparent',
+            shadowOffset: { width: 0, height: 4 },
+            shadowOpacity: isSelected ? 0.08 : 0,
+            shadowRadius: 10,
+            elevation: isSelected ? 2 : 0,
+          },
+        ]}
+      >
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <View
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: 20,
+              backgroundColor: opt.badgeColor,
+              borderWidth: 1,
+              borderColor: 'rgba(255,255,255,0.05)',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginRight: 16,
+            }}
+          >
+            <Ionicons name={opt.icon as any} size={18} color={opt.iconColor} />
+          </View>
+          <Text
+            style={{
+              color: '#FFFFFF',
+              fontSize: 16,
+              fontFamily: isSelected ? 'DMSans_500Medium' : 'DMSans_400Regular',
+            }}
+          >
+            {opt.label}
+          </Text>
+        </View>
+        <View
+          style={{
+            width: 22,
+            height: 22,
+            borderRadius: 11,
+            borderWidth: 1.5,
+            borderColor: isSelected ? '#639922' : '#333333',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: isSelected ? 'rgba(99,153,34,0.08)' : 'transparent',
+          }}
+        >
+          {isSelected && (
+            <View
+              style={{
+                width: 10,
+                height: 10,
+                borderRadius: 5,
+                backgroundColor: '#639922',
+              }}
+            />
+          )}
+        </View>
+      </Animated.View>
+    </Pressable>
+  );
+}
+
 export default function HowFoundScreen() {
   const router = useRouter();
   const { setHowFound } = useStore();
   const [selected, setSelected] = useState<string | null>(null);
   const [otherText, setOtherText] = useState('');
   const [isFocused, setIsFocused] = useState(false);
-
-  // Animated values for list rows
-  const [scaleAnims] = useState(() => 
-    OPTIONS.reduce((acc, opt) => {
-      acc[opt.id] = new Animated.Value(1);
-      return acc;
-    }, {} as Record<string, Animated.Value>)
-  );
-
-  const handlePressIn = (id: string) => {
-    Animated.spring(scaleAnims[id], {
-      toValue: 0.97,
-      useNativeDriver: true,
-      tension: 100,
-      friction: 6,
-    }).start();
-  };
-
-  const handlePressOut = (id: string) => {
-    Animated.spring(scaleAnims[id], {
-      toValue: 1,
-      useNativeDriver: true,
-      tension: 100,
-      friction: 6,
-    }).start();
-  };
 
   const handleSelect = (id: string) => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -95,13 +179,13 @@ export default function HowFoundScreen() {
           : selected
       );
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
-      router.push('/onboarding/import');
+      router.push('/(auth)/sign-up');
     }
   };
 
   const handleSkip = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    router.replace('/home');
+    router.replace('/(auth)/sign-up');
   };
 
   return (
@@ -169,7 +253,8 @@ export default function HowFoundScreen() {
           }}
         >
           {/* HEADER TEXT block */}
-          <View
+          <Animated.View
+            entering={FadeInDown.duration(500)}
             style={{
               marginBottom: 32,
             }}
@@ -210,7 +295,7 @@ export default function HowFoundScreen() {
             >
               Helps us refine Stash as the ultimate bookmark engine for creators.
             </Text>
-          </View>
+          </Animated.View>
 
           {/* iOS GROUPED LIST SELECTIONS */}
           <View
@@ -219,99 +304,15 @@ export default function HowFoundScreen() {
               marginBottom: 24,
             }}
           >
-            {OPTIONS.map((opt) => {
-              const isSelected = selected === opt.id;
-              const scale = scaleAnims[opt.id];
-
-              return (
-                <Pressable
-                  key={opt.id}
-                  onPressIn={() => handlePressIn(opt.id)}
-                  onPressOut={() => handlePressOut(opt.id)}
-                  onPress={() => handleSelect(opt.id)}
-                >
-                  <Animated.View
-                    style={{
-                      transform: [{ scale }],
-                      width: '100%',
-                      height: 68,
-                      backgroundColor: '#111111',
-                      borderWidth: 1.2,
-                      borderColor: isSelected ? '#639922' : '#222222',
-                      borderRadius: 18,
-                      paddingHorizontal: 16,
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      // Glassmorphic shadow glow on select
-                      shadowColor: isSelected ? '#639922' : 'transparent',
-                      shadowOffset: { width: 0, height: 4 },
-                      shadowOpacity: isSelected ? 0.08 : 0,
-                      shadowRadius: 10,
-                      elevation: isSelected ? 2 : 0,
-                    }}
-                  >
-                    {/* LEFT BADGE & TEXT */}
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                      <View
-                        style={{
-                          width: 40,
-                          height: 40,
-                          borderRadius: 20,
-                          backgroundColor: opt.badgeColor,
-                          borderWidth: 1,
-                          borderColor: 'rgba(255,255,255,0.05)',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          marginRight: 16,
-                        }}
-                      >
-                        <Ionicons
-                          name={opt.icon as any}
-                          size={18}
-                          color={opt.iconColor}
-                        />
-                      </View>
-
-                      <Text
-                        style={{
-                          color: '#FFFFFF',
-                          fontSize: 16,
-                          fontFamily: isSelected ? 'DMSans_500Medium' : 'DMSans_400Regular',
-                        }}
-                      >
-                        {opt.label}
-                      </Text>
-                    </View>
-
-                    {/* APPLE SWIFTUI STYLE SELECTOR */}
-                    <View
-                      style={{
-                        width: 22,
-                        height: 22,
-                        borderRadius: 11,
-                        borderWidth: 1.5,
-                        borderColor: isSelected ? '#639922' : '#333333',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        backgroundColor: isSelected ? 'rgba(99,153,34,0.08)' : 'transparent',
-                      }}
-                    >
-                      {isSelected && (
-                        <View
-                          style={{
-                            width: 10,
-                            height: 10,
-                            borderRadius: 5,
-                            backgroundColor: '#639922',
-                          }}
-                        />
-                      )}
-                    </View>
-                  </Animated.View>
-                </Pressable>
-              );
-            })}
+            {OPTIONS.map((opt, index) => (
+              <Animated.View key={opt.id} entering={FadeInRight.delay(index * 100).duration(400)}>
+                <OptionItem
+                  opt={opt}
+                  isSelected={selected === opt.id}
+                  onSelect={() => handleSelect(opt.id)}
+                />
+              </Animated.View>
+            ))}
           </View>
 
           {/* DYNAMIC TEXTFIELD FOR "OTHER" OPTION */}
